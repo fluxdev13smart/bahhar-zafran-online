@@ -92,7 +92,7 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="md:hidden absolute top-full left-0 right-0 z-50 p-4">
             <div id="navbody">
               <form>
                 <ul className="ul">
@@ -106,7 +106,10 @@ const Navigation = () => {
                   />
                   <label htmlFor="choose1">
                     <li className="li">
-                      <div className="svg">🏠</div>
+                      <div className="svg">
+                        <span className="emoji">🏠</span>
+                        <span className="text">Home</span>
+                      </div>
                     </li>
                   </label>
                   
@@ -119,7 +122,10 @@ const Navigation = () => {
                   />
                   <label htmlFor="choose2">
                     <li className="li">
-                      <div className="svg">ℹ️</div>
+                      <div className="svg">
+                        <span className="emoji">ℹ️</span>
+                        <span className="text">About</span>
+                      </div>
                     </li>
                   </label>
                   
@@ -132,7 +138,10 @@ const Navigation = () => {
                   />
                   <label htmlFor="choose3">
                     <li className="li">
-                      <div className="svg">🛍️</div>
+                      <div className="svg">
+                        <span className="emoji">🛍️</span>
+                        <span className="text">Products</span>
+                      </div>
                     </li>
                   </label>
                   
@@ -145,7 +154,10 @@ const Navigation = () => {
                   />
                   <label htmlFor="choose4">
                     <li className="li">
-                      <div className="svg">⚙️</div>
+                      <div className="svg">
+                        <span className="emoji">⚙️</span>
+                        <span className="text">Services</span>
+                      </div>
                     </li>
                   </label>
                   
@@ -158,7 +170,10 @@ const Navigation = () => {
                   />
                   <label htmlFor="choose5">
                     <li className="li">
-                      <div className="svg">📞</div>
+                      <div className="svg">
+                        <span className="emoji">📞</span>
+                        <span className="text">Contact</span>
+                      </div>
                     </li>
                   </label>
                 </ul>
