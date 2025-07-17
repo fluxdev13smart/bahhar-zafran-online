@@ -92,38 +92,77 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-saffron-200">
-              <button
-                onClick={() => scrollToSection('home')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-earth-700 hover:text-saffron-600"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-earth-700 hover:text-saffron-600"
-              >
-                About Us
-              </button>
-              <button
-                onClick={() => scrollToSection('products')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-earth-700 hover:text-saffron-600"
-              >
-                Products
-              </button>
-              <button
-                onClick={() => scrollToSection('services')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-earth-700 hover:text-saffron-600"
-              >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-earth-700 hover:text-saffron-600"
-              >
-                Contact
-              </button>
+          <div className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+            <div id="navbody">
+              <form>
+                <ul className="ul">
+                  <input 
+                    defaultChecked 
+                    name="rad" 
+                    className="radio" 
+                    id="choose1" 
+                    type="radio" 
+                    onChange={() => scrollToSection('home')}
+                  />
+                  <label htmlFor="choose1">
+                    <li className="li">
+                      <div className="svg">🏠</div>
+                    </li>
+                  </label>
+                  
+                  <input 
+                    className="radio" 
+                    name="rad" 
+                    id="choose2" 
+                    type="radio"
+                    onChange={() => scrollToSection('about')}
+                  />
+                  <label htmlFor="choose2">
+                    <li className="li">
+                      <div className="svg">ℹ️</div>
+                    </li>
+                  </label>
+                  
+                  <input 
+                    className="radio" 
+                    name="rad" 
+                    id="choose3" 
+                    type="radio"
+                    onChange={() => scrollToSection('products')}
+                  />
+                  <label htmlFor="choose3">
+                    <li className="li">
+                      <div className="svg">🛍️</div>
+                    </li>
+                  </label>
+                  
+                  <input 
+                    className="radio" 
+                    name="rad" 
+                    id="choose4" 
+                    type="radio"
+                    onChange={() => scrollToSection('services')}
+                  />
+                  <label htmlFor="choose4">
+                    <li className="li">
+                      <div className="svg">⚙️</div>
+                    </li>
+                  </label>
+                  
+                  <input 
+                    className="radio" 
+                    name="rad" 
+                    id="choose5" 
+                    type="radio"
+                    onChange={() => scrollToSection('contact')}
+                  />
+                  <label htmlFor="choose5">
+                    <li className="li">
+                      <div className="svg">📞</div>
+                    </li>
+                  </label>
+                </ul>
+              </form>
             </div>
           </div>
         )}
