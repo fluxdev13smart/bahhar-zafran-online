@@ -22,7 +22,7 @@ const AboutSection = () => {
           <div className="animate-fade-in">
             <Card className="overflow-hidden shadow-xl border-saffron-200">
               <div className="h-80 bg-cover bg-center" style={{
-                backgroundImage: 'url("https://lh3.googleusercontent.com/gps-cs-s/AC9h4noUGi_CZqJi-9qNJ012PPS7NNVwb471MtyqjHEnksXGk_lJudSwwUbkECu0ZJr2HEoGdwkkWrKHvwOEc5J8f8IBpiEAO92Hu9NTpobT1rJCz7RYQ6C22NRxoLL3AloPmicKgNWHgQ=s2400-k-no")'
+                backgroundImage: 'url("https://i.imgur.com/9YaTWxk.png")'
               }}></div>
             </Card>
           </div>
