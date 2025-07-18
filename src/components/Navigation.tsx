@@ -4,12 +4,14 @@ import { Phone } from 'lucide-react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setActiveSection(sectionId);
     setIsMenuOpen(false);
   };
 
@@ -97,7 +99,7 @@ const Navigation = () => {
               <form>
                 <ul className="ul">
                   <input 
-                    defaultChecked 
+                    checked={activeSection === 'home'}
                     name="rad" 
                     className="radio" 
                     id="choose1" 
@@ -114,6 +116,7 @@ const Navigation = () => {
                   </label>
                   
                   <input 
+                    checked={activeSection === 'about'}
                     className="radio" 
                     name="rad" 
                     id="choose2" 
@@ -130,6 +133,7 @@ const Navigation = () => {
                   </label>
                   
                   <input 
+                    checked={activeSection === 'products'}
                     className="radio" 
                     name="rad" 
                     id="choose3" 
@@ -146,6 +150,7 @@ const Navigation = () => {
                   </label>
                   
                   <input 
+                    checked={activeSection === 'services'}
                     className="radio" 
                     name="rad" 
                     id="choose4" 
@@ -162,6 +167,7 @@ const Navigation = () => {
                   </label>
                   
                   <input 
+                    checked={activeSection === 'contact'}
                     className="radio" 
                     name="rad" 
                     id="choose5" 
