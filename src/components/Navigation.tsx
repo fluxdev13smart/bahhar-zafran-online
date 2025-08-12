@@ -66,13 +66,25 @@ const Navigation = () => {
           </div>
 
           {/* Contact Button */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <Button
               onClick={() => scrollToSection('contact')}
               className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
               Call Now
+            </Button>
+          </div>
+          
+          {/* Tablet Contact Button - Compact */}
+          <div className="hidden md:flex lg:hidden items-center">
+            <Button
+              onClick={() => scrollToSection('contact')}
+              size="sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center gap-1"
+            >
+              <Phone className="w-4 h-4" />
+              Call
             </Button>
           </div>
 
