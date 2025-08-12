@@ -16,7 +16,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-saffron-200 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -24,7 +24,7 @@ const Navigation = () => {
             <h1 className="text-2xl font-playfair font-bold">
               <span className="gradient-text">Bahar Al Zafran</span>
             </h1>
-            <p className="text-xs text-saffron-700 arabic-text mt-1">
+            <p className="text-xs text-secondary arabic-text mt-1">
               مطحنة و اعشاب بحرالزعفران
             </p>
           </div>
@@ -34,31 +34,31 @@ const Navigation = () => {
             <div className="ml-10 flex items-baseline space-x-8">
               <button
                 onClick={() => scrollToSection('home')}
-                className="text-earth-700 hover:text-saffron-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="text-earth-700 hover:text-saffron-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
               >
                 About Us
               </button>
               <button
                 onClick={() => scrollToSection('products')}
-                className="text-earth-700 hover:text-saffron-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
               >
                 Products
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className="text-earth-700 hover:text-saffron-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-earth-700 hover:text-saffron-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
               >
                 Contact
               </button>
@@ -69,7 +69,7 @@ const Navigation = () => {
           <div className="hidden md:flex items-center">
             <Button
               onClick={() => scrollToSection('contact')}
-              className="bg-saffron-500 hover:bg-saffron-600 text-white flex items-center gap-2"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
               Call Now
