@@ -165,7 +165,7 @@ const ContactSection = () => {
               Call Now
             </Button>
             <Button
-              onClick={() => window.open('https://maps.google.com/?q=BAHAR+ALZAFARAN+GRINDING+SHOP', '_blank')}
+              onClick={() => window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')}
               size="lg"
               className="bg-earth-600 hover:bg-earth-700 text-white border-2 border-earth-500 px-8 py-3 text-lg font-semibold rounded-full shadow-lg"
             >
