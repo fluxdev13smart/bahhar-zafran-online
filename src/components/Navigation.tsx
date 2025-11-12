@@ -31,34 +31,34 @@ const Navigation = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-3">
               <button
                 onClick={() => scrollToSection('home')}
-                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
               >
                 About Us
               </button>
               <button
                 onClick={() => scrollToSection('products')}
-                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
               >
                 Products
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-foreground hover:text-secondary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
               >
                 Contact
               </button>
@@ -69,7 +69,7 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center">
             <Button
               onClick={() => scrollToSection('contact')}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center gap-2"
+              className="backdrop-blur-xl bg-primary/90 hover:bg-primary text-primary-foreground flex items-center gap-2 rounded-full border border-primary/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               <Phone className="w-4 h-4" />
               Call Now
@@ -81,7 +81,7 @@ const Navigation = () => {
             <Button
               onClick={() => scrollToSection('contact')}
               size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center gap-1"
+              className="backdrop-blur-xl bg-primary/90 hover:bg-primary text-primary-foreground flex items-center gap-1 rounded-full border border-primary/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               <Phone className="w-4 h-4" />
               Call
