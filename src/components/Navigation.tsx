@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Phone } from 'lucide-react';
+import { Phone, Home, Info, ShoppingBag, Settings } from 'lucide-react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -107,7 +107,7 @@ const Navigation = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 z-50 p-4">
-            <div id="navbody">
+            <div id="navbody" className="backdrop-blur-2xl bg-background/20 border border-border/30 rounded-2xl shadow-xl">
               <form>
                 <ul className="ul">
                   <input 
@@ -121,7 +121,7 @@ const Navigation = () => {
                   <label htmlFor="choose1">
                     <li className="li">
                       <div className="svg">
-                        <span className="emoji">🏠</span>
+                        <Home className="w-5 h-5" />
                         <span className="text">Home</span>
                       </div>
                     </li>
@@ -138,7 +138,7 @@ const Navigation = () => {
                   <label htmlFor="choose2">
                     <li className="li">
                       <div className="svg">
-                        <span className="emoji">ℹ️</span>
+                        <Info className="w-5 h-5" />
                         <span className="text">About</span>
                       </div>
                     </li>
@@ -155,7 +155,7 @@ const Navigation = () => {
                   <label htmlFor="choose3">
                     <li className="li">
                       <div className="svg">
-                        <span className="emoji">🛍️</span>
+                        <ShoppingBag className="w-5 h-5" />
                         <span className="text">Products</span>
                       </div>
                     </li>
@@ -172,7 +172,7 @@ const Navigation = () => {
                   <label htmlFor="choose4">
                     <li className="li">
                       <div className="svg">
-                        <span className="emoji">⚙️</span>
+                        <Settings className="w-5 h-5" />
                         <span className="text">Services</span>
                       </div>
                     </li>
@@ -189,7 +189,7 @@ const Navigation = () => {
                   <label htmlFor="choose5">
                     <li className="li">
                       <div className="svg">
-                        <span className="emoji">📞</span>
+                        <Phone className="w-5 h-5" />
                         <span className="text">Contact</span>
                       </div>
                     </li>
