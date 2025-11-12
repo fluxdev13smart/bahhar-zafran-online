@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Phone, Home, Info, ShoppingBag, Settings } from 'lucide-react';
+import { Phone, Home, Info, ShoppingBag, Settings, MapPin } from 'lucide-react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,12 +45,6 @@ const Navigation = () => {
                 About Us
               </button>
               <button
-                onClick={() => scrollToSection('products')}
-                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
-              >
-                Products
-              </button>
-              <button
                 onClick={() => scrollToSection('services')}
                 className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
               >
@@ -61,6 +55,18 @@ const Navigation = () => {
                 className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
               >
                 Contact
+              </button>
+              <button
+                onClick={() => {
+                  const headings = Array.from(document.querySelectorAll('h3'));
+                  const element = headings.find(h => h.textContent?.includes('Ready to Experience Authentic Spices?'));
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }}
+                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
+              >
+                <MapPin className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -145,31 +151,14 @@ const Navigation = () => {
                   </label>
                   
                   <input 
-                    checked={activeSection === 'products'}
+                    checked={activeSection === 'services'}
                     className="radio" 
                     name="rad" 
                     id="choose3" 
                     type="radio"
-                    onChange={() => scrollToSection('products')}
-                  />
-                  <label htmlFor="choose3">
-                    <li className="li">
-                      <div className="svg">
-                        <ShoppingBag className="w-5 h-5" />
-                        <span className="text">Products</span>
-                      </div>
-                    </li>
-                  </label>
-                  
-                  <input 
-                    checked={activeSection === 'services'}
-                    className="radio" 
-                    name="rad" 
-                    id="choose4" 
-                    type="radio"
                     onChange={() => scrollToSection('services')}
                   />
-                  <label htmlFor="choose4">
+                  <label htmlFor="choose3">
                     <li className="li">
                       <div className="svg">
                         <Settings className="w-5 h-5" />
@@ -182,11 +171,11 @@ const Navigation = () => {
                     checked={activeSection === 'contact'}
                     className="radio" 
                     name="rad" 
-                    id="choose5" 
+                    id="choose4" 
                     type="radio"
                     onChange={() => scrollToSection('contact')}
                   />
-                  <label htmlFor="choose5">
+                  <label htmlFor="choose4">
                     <li className="li">
                       <div className="svg">
                         <Phone className="w-5 h-5" />

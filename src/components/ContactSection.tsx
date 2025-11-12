@@ -3,18 +3,23 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Phone, MapPin, Copy } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const ContactSection = () => {
   const { toast } = useToast();
   
   const phoneNumbers = [
-    '+971 4 285 7715',
-    '+971 55 4747065',
-    '+971 55 9074779'
+    { display: '+971 4 285 7715', call: '+971 4 285 7715', whatsapp: null },
+    { display: '+971 55 474 7065', call: '+971 55 474 7065', whatsapp: 'https://wa.me/971554747065' },
+    { display: '+971 55 907 4779', call: '+971 55 907 4779', whatsapp: 'https://wa.me/971559074779' }
   ];
 
   const handleCallClick = (phoneNumber: string) => {
     window.open(`tel:${phoneNumber}`, '_self');
+  };
+
+  const handleWhatsAppClick = (url: string) => {
+    window.open(url, '_blank');
   };
 
   const handleCopyClick = (phoneNumber: string) => {
@@ -52,17 +57,26 @@ const ContactSection = () => {
                 <div className="space-y-4">
                   {phoneNumbers.map((phone, index) => (
                     <div key={index} className="flex items-center justify-between">
-                      <span className="text-lg text-gray-300">{phone}</span>
+                      <span className="text-lg text-gray-300">{phone.display}</span>
                       <div className="flex gap-2">
                         <Button
-                          onClick={() => handleCopyClick(phone)}
+                          onClick={() => handleCopyClick(phone.display)}
                           size="sm"
                           className="bg-earth-600 hover:bg-earth-700 text-white border border-earth-500 shadow-md"
                         >
                           <Copy className="w-4 h-4" />
                         </Button>
+                        {phone.whatsapp && (
+                          <Button
+                            onClick={() => handleWhatsAppClick(phone.whatsapp!)}
+                            size="sm"
+                            className="bg-green-600 hover:bg-green-700 text-white border border-green-500 shadow-md"
+                          >
+                            <WhatsAppIcon className="w-4 h-4" />
+                          </Button>
+                        )}
                         <Button
-                          onClick={() => handleCallClick(phone)}
+                          onClick={() => handleCallClick(phone.call)}
                           size="sm"
                           className="bg-saffron-600 hover:bg-saffron-700 text-white font-semibold shadow-md"
                         >
@@ -157,7 +171,7 @@ const ContactSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              onClick={() => handleCallClick(phoneNumbers[0])}
+              onClick={() => handleCallClick(phoneNumbers[0].call)}
               size="lg"
               className="bg-saffron-600 hover:bg-saffron-700 text-white px-8 py-3 text-lg font-semibold rounded-full shadow-lg"
             >

@@ -31,8 +31,8 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-earth-400">
               <span>+971 4 285 7715</span>
-              <span>+971 55 4747065</span>
-              <span>+971 55 9074779</span>
+              <span>+971 55 474 7065</span>
+              <span>+971 55 907 4779</span>
             </div>
             <div className="mt-6 pt-6 border-t border-earth-700 text-sm text-earth-500">
               © 2024 Bahar Al Zafran. All rights reserved.
