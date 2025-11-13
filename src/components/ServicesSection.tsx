@@ -2,8 +2,10 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Wheat, ChefHat, Truck, Scale } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
 const ServicesSection = () => {
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
   const services = [
     {
       title: 'Custom Spice Grinding',
@@ -36,7 +38,11 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background relative z-10">
+    <section 
+      id="services" 
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`py-20 bg-background relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-earth-800 mb-4">
