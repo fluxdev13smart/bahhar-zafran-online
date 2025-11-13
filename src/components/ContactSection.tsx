@@ -48,7 +48,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Contact Information */}
           <div className="space-y-8">
-            <Card className="bg-white/10 backdrop-blur border-saffron-300/30">
+            <Card className="bg-earth-800/30 backdrop-blur border-saffron-300/30">
               <CardContent className="p-6">
                 <h3 className="text-2xl font-playfair font-semibold mb-6 flex items-center text-saffron-200">
                   <Phone className="w-6 h-6 mr-3" />
@@ -89,7 +89,7 @@ const ContactSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-white/10 backdrop-blur border-saffron-300/30">
+            <Card className="bg-earth-800/30 backdrop-blur border-saffron-300/30">
               <CardContent className="p-6">
                 <h3 className="text-2xl font-playfair font-semibold mb-6 flex items-center text-saffron-200">
                   <MapPin className="w-6 h-6 mr-3" />
