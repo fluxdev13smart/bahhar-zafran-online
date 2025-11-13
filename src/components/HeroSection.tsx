@@ -1,8 +1,9 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
 const HeroSection = () => {
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -11,7 +12,11 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden z-10">
+    <section 
+      id="home" 
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+    >
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
