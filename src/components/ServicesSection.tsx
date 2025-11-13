@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Wheat, ChefHat, Truck, Scale } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
@@ -9,33 +10,33 @@ const ServicesSection = () => {
       arabicTitle: 'طحن البهارات المخصص',
       description: 'Professional grinding services using traditional stone mills to preserve natural oils and flavors.',
       features: ['Stone Mill Technology', 'Various Textures', 'Same-Day Service', 'Bulk Processing'],
-      icon: '🌾'
+      icon: Wheat
     },
     {
       title: 'Spice Consultation',
       arabicTitle: 'استشارات البهارات',
       description: 'Expert advice on spice selection, usage, and storage from our experienced team.',
       features: ['Recipe Recommendations', 'Spice Pairing', 'Quality Assessment', 'Storage Tips'],
-      icon: '👨‍🍳'
+      icon: ChefHat
     },
     {
       title: 'Wholesale Supply',
       arabicTitle: 'التوريد بالجملة',
       description: 'Bulk supply services for restaurants, hotels, and commercial kitchens.',
       features: ['Competitive Pricing', 'Regular Delivery', 'Quality Guarantee', 'Custom Packaging'],
-      icon: '🚛'
+      icon: Truck
     },
     {
       title: 'Custom Blending',
       arabicTitle: 'خلط مخصص',
       description: 'Create your own signature spice blends with our custom mixing services.',
       features: ['Recipe Development', 'Precise Measurements', 'Consistent Quality'],
-      icon: '⚖️'
+      icon: Scale
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-background relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-earth-800 mb-4">
@@ -55,8 +56,10 @@ const ServicesSection = () => {
               key={index}
               className="group h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-saffron-200"
             >
-              <CardContent className="p-6 text-center h-full flex flex-col">
-                <div className="text-4xl mb-4">{service.icon}</div>
+            <CardContent className="p-6 text-center h-full flex flex-col">
+                <div className="text-saffron-600 mb-4 flex justify-center">
+                  <service.icon className="w-10 h-10" />
+                </div>
                 <h3 className="text-xl font-playfair font-semibold text-earth-800 mb-2">
                   {service.title}
                 </h3>

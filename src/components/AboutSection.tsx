@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-earth-50 to-saffron-50">
+    <section id="about" className="py-20 bg-gradient-to-br from-earth-50 to-saffron-50 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-earth-800 mb-4">

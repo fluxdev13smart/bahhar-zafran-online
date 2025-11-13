@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Phone, Home, Info, ShoppingBag, Settings, MapPin } from 'lucide-react';
+import { Phone, Home, Info, ShoppingBag, Settings, MapPin, Package } from 'lucide-react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,6 +45,12 @@ const Navigation = () => {
                 About Us
               </button>
               <button
+                onClick={() => scrollToSection('products')}
+                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
+              >
+                Products
+              </button>
+              <button
                 onClick={() => scrollToSection('services')}
                 className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
               >
@@ -64,7 +70,7 @@ const Navigation = () => {
                     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
+                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50 flex items-center justify-center"
               >
                 <MapPin className="w-4 h-4" />
               </button>
@@ -151,14 +157,31 @@ const Navigation = () => {
                   </label>
                   
                   <input 
-                    checked={activeSection === 'services'}
+                    checked={activeSection === 'products'}
                     className="radio" 
                     name="rad" 
                     id="choose3" 
                     type="radio"
-                    onChange={() => scrollToSection('services')}
+                    onChange={() => scrollToSection('products')}
                   />
                   <label htmlFor="choose3">
+                    <li className="li">
+                      <div className="svg">
+                        <Package className="w-5 h-5" />
+                        <span className="text">Products</span>
+                      </div>
+                    </li>
+                  </label>
+                  
+                  <input 
+                    checked={activeSection === 'services'}
+                    className="radio" 
+                    name="rad" 
+                    id="choose4" 
+                    type="radio"
+                    onChange={() => scrollToSection('services')}
+                  />
+                  <label htmlFor="choose4">
                     <li className="li">
                       <div className="svg">
                         <Settings className="w-5 h-5" />
@@ -171,15 +194,40 @@ const Navigation = () => {
                     checked={activeSection === 'contact'}
                     className="radio" 
                     name="rad" 
-                    id="choose4" 
+                    id="choose5" 
                     type="radio"
                     onChange={() => scrollToSection('contact')}
                   />
-                  <label htmlFor="choose4">
+                  <label htmlFor="choose5">
                     <li className="li">
                       <div className="svg">
                         <Phone className="w-5 h-5" />
                         <span className="text">Contact</span>
+                      </div>
+                    </li>
+                  </label>
+                  
+                  <input 
+                    checked={activeSection === 'location'}
+                    className="radio" 
+                    name="rad" 
+                    id="choose6" 
+                    type="radio"
+                    onChange={() => {
+                      const headings = Array.from(document.querySelectorAll('h3'));
+                      const element = headings.find(h => h.textContent?.includes('Ready to Experience Authentic Spices?'));
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }
+                      setActiveSection('location');
+                      setIsMenuOpen(false);
+                    }}
+                  />
+                  <label htmlFor="choose6">
+                    <li className="li">
+                      <div className="svg">
+                        <MapPin className="w-5 h-5" />
+                        <span className="text">Location</span>
                       </div>
                     </li>
                   </label>
