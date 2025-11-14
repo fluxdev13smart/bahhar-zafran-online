@@ -15,7 +15,7 @@ const HeroSection = () => {
     <section 
       id="home" 
       ref={ref as React.RefObject<HTMLElement>}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`relative min-h-screen pt-20 flex items-center justify-center overflow-hidden z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     >
       {/* Background Image */}
       <div 
@@ -33,30 +33,30 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-playfair font-bold mb-6 text-shadow-lg">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-playfair font-bold mb-4 sm:mb-6 text-shadow-lg">
             Bahar Al Zafran
           </h1>
-          <div className="text-2xl md:text-4xl font-noto-kufi mb-8 text-saffron-200 arabic-text">
+          <div className="text-xl sm:text-2xl md:text-4xl font-noto-kufi mb-6 sm:mb-8 text-saffron-200 arabic-text">
             مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
           </div>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
             Traditional Supermarket & Grinding Mill in Dubai
           </p>
-          <p className="text-lg md:text-xl mb-12 text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-300 max-w-2xl mx-auto px-2">
             Bringing you the finest saffron, herbs, spices, and oils with authentic grinding services since generations
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2">
             <Button
               onClick={() => scrollToSection('products')}
               size="lg"
-              className="bg-saffron-600 hover:bg-saffron-700 text-white px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="bg-saffron-600 hover:bg-saffron-700 text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-[popOut_0.6s_ease-out] md:animate-none"
             >
               Explore Our Products
             </Button>
             <Button
               onClick={() => scrollToSection('contact')}
               size="lg"
-              className="bg-earth-600 hover:bg-earth-700 text-white border-2 border-earth-500 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="bg-earth-600/90 hover:bg-earth-700 text-white border-2 border-earth-500/50 px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-[popOut_0.8s_ease-out] md:animate-none backdrop-blur-sm"
             >
               Visit Our Store
             </Button>
