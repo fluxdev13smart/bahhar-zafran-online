@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Phone, Home, Info, ShoppingBag, Settings, MapPin, Package } from 'lucide-react';
+import { Phone, Home, Info, Settings, MapPin, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -96,123 +96,130 @@ const Navigation = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <label className="hamburger">
-              <input 
-                type="checkbox" 
-                checked={isMenuOpen}
-                onChange={() => setIsMenuOpen(!isMenuOpen)}
-              />
-              <svg viewBox="0 0 32 32">
-                <path className="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-                <path className="line" d="M7 16 27 16"></path>
-              </svg>
-            </label>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-full text-foreground hover:text-primary hover:bg-background/60 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary transition-all duration-300 backdrop-blur-xl bg-background/40 border border-border/30"
+            >
+              <span className="sr-only">Open main menu</span>
+              {!isMenuOpen ? (
+                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              ) : (
+                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 z-50 p-4">
-            <div id="navbody" className="backdrop-blur-2xl bg-background/20 border border-border/30 rounded-2xl shadow-xl">
-              <form>
-                <ul className="ul">
-                  <input 
-                    checked={activeSection === 'home'}
-                    name="rad" 
-                    className="radio" 
-                    id="choose1" 
-                    type="radio" 
-                    onChange={() => scrollToSection('home')}
-                  />
-                  <label htmlFor="choose1">
-                    <li className="li">
-                      <div className="svg">
-                        <Home className="w-5 h-5" />
-                        <span className="text">Home</span>
-                      </div>
-                    </li>
-                  </label>
-                  
-                  <input 
-                    checked={activeSection === 'about'}
-                    className="radio" 
-                    name="rad" 
-                    id="choose2" 
-                    type="radio"
-                    onChange={() => scrollToSection('about')}
-                  />
-                  <label htmlFor="choose2">
-                    <li className="li">
-                      <div className="svg">
-                        <Info className="w-5 h-5" />
-                        <span className="text">About</span>
-                      </div>
-                    </li>
-                  </label>
-                  
-                  <input 
-                    checked={activeSection === 'services'}
-                    className="radio" 
-                    name="rad" 
-                    id="choose3" 
-                    type="radio"
-                    onChange={() => scrollToSection('services')}
-                  />
-                  <label htmlFor="choose3">
-                    <li className="li">
-                      <div className="svg">
-                        <Settings className="w-5 h-5" />
-                        <span className="text">Services</span>
-                      </div>
-                    </li>
-                  </label>
-                  
-                  <input 
-                    checked={activeSection === 'contact'}
-                    className="radio" 
-                    name="rad" 
-                    id="choose4" 
-                    type="radio"
-                    onChange={() => scrollToSection('contact')}
-                  />
-                  <label htmlFor="choose4">
-                    <li className="li">
-                      <div className="svg">
-                        <Phone className="w-5 h-5" />
-                        <span className="text">Contact</span>
-                      </div>
-                    </li>
-                  </label>
-                  
-                  <input 
-                    checked={activeSection === 'location'}
-                    className="radio" 
-                    name="rad" 
-                    id="choose5" 
-                    type="radio"
-                    onChange={() => {
-                      const headings = Array.from(document.querySelectorAll('h3'));
-                      const element = headings.find(h => h.textContent?.includes('Ready to Experience Authentic Spices?'));
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                      }
-                      setActiveSection('location');
-                      setIsMenuOpen(false);
-                    }}
-                  />
-                  <label htmlFor="choose5">
-                    <li className="li">
-                      <div className="svg">
-                        <MapPin className="w-5 h-5" />
-                        <span className="text">Location</span>
-                      </div>
-                    </li>
-                  </label>
-                </ul>
-              </form>
+      {/* Backdrop overlay */}
+      {isMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden animate-fade-in"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile menu - Slide in from right */}
+      <div 
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] z-50 md:hidden transform transition-transform duration-300 ease-out ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="h-full backdrop-blur-2xl bg-background/95 border-l border-border/30 shadow-2xl flex flex-col">
+          {/* Mobile menu header */}
+          <div className="flex items-center justify-between p-4 border-b border-border/30">
+            <h2 className="text-xl font-playfair font-bold gradient-text">Menu</h2>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 rounded-full hover:bg-background/60 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Mobile menu items */}
+          <div className="flex-1 overflow-y-auto py-4">
+            <div className="px-4 space-y-2">
+              <button
+                onClick={() => scrollToSection('home')}
+                className={`w-full text-left px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 flex items-center gap-3 ${
+                  activeSection === 'home'
+                    ? 'bg-primary/20 text-primary border border-primary/30'
+                    : 'text-foreground hover:bg-background/60 border border-transparent'
+                }`}
+              >
+                <Home className="w-5 h-5" />
+                Home
+              </button>
+
+              <button
+                onClick={() => scrollToSection('about')}
+                className={`w-full text-left px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 flex items-center gap-3 ${
+                  activeSection === 'about'
+                    ? 'bg-primary/20 text-primary border border-primary/30'
+                    : 'text-foreground hover:bg-background/60 border border-transparent'
+                }`}
+              >
+                <Info className="w-5 h-5" />
+                About Us
+              </button>
+
+              <button
+                onClick={() => scrollToSection('services')}
+                className={`w-full text-left px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 flex items-center gap-3 ${
+                  activeSection === 'services'
+                    ? 'bg-primary/20 text-primary border border-primary/30'
+                    : 'text-foreground hover:bg-background/60 border border-transparent'
+                }`}
+              >
+                <Settings className="w-5 h-5" />
+                Services
+              </button>
+
+              <button
+                onClick={() => scrollToSection('contact')}
+                className={`w-full text-left px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 flex items-center gap-3 ${
+                  activeSection === 'contact'
+                    ? 'bg-primary/20 text-primary border border-primary/30'
+                    : 'text-foreground hover:bg-background/60 border border-transparent'
+                }`}
+              >
+                <Phone className="w-5 h-5" />
+                Contact
+              </button>
+
+              <button
+                onClick={() => {
+                  const headings = Array.from(document.querySelectorAll('h3'));
+                  const element = headings.find(h => h.textContent?.includes('Ready to Experience Authentic Spices?'));
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                  setIsMenuOpen(false);
+                }}
+                className="w-full text-left px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 flex items-center gap-3 text-foreground hover:bg-background/60 border border-transparent"
+              >
+                <MapPin className="w-5 h-5" />
+                Location
+              </button>
             </div>
           </div>
-        )}
+
+          {/* Mobile menu footer */}
+          <div className="p-4 border-t border-border/30">
+            <Button
+              onClick={() => scrollToSection('contact')}
+              className="w-full backdrop-blur-xl bg-primary/90 hover:bg-primary text-primary-foreground rounded-full shadow-lg"
+            >
+              <Phone className="w-4 h-4 mr-2" />
+              Call Now
+            </Button>
+          </div>
+        </div>
       </div>
     </nav>
   );

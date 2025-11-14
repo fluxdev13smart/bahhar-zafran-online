@@ -5,8 +5,10 @@ import AboutSection from '@/components/AboutSection';
 import ProductsSection from '@/components/ProductsSection';
 import ServicesSection from '@/components/ServicesSection';
 import ContactSection from '@/components/ContactSection';
+import { useVisitorTracking } from '@/hooks/use-visitor-tracking';
 
 const Index = () => {
+  useVisitorTracking();
   return (
     <div className="min-h-screen">
       <Navigation />
