@@ -62,9 +62,9 @@ const ContactSection = () => {
                 </h3>
                 <div className="space-y-4">
                   {phoneNumbers.map((phone, index) => (
-                    <div key={index} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div key={index} className="flex items-center justify-between">
                       <span className="text-lg text-gray-300">{phone.display}</span>
-                      <div className="flex gap-2 flex-wrap">
+                      <div className="flex gap-2">
                         <Button
                           onClick={() => handleCopyClick(phone.display)}
                           size="sm"
