@@ -188,6 +188,20 @@
     justify-content: center;
     display: flex;
     margin: 0 auto;
+    transform: scale(0);
+    opacity: 0;
+    animation: popOutMenu 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+
+  @keyframes popOutMenu {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 
   .ul {
@@ -252,43 +266,15 @@
     font-weight: 600;
   }
 
-  /* Add pop-up animation for mobile navigation items */
+  /* Mobile navigation click animation */
   @media (max-width: 768px) {
-    #navbody label {
-      animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-    
-    #navbody label:nth-child(2) { animation-delay: 0.05s; }
-    #navbody label:nth-child(4) { animation-delay: 0.1s; }
-    #navbody label:nth-child(6) { animation-delay: 0.15s; }
-    #navbody label:nth-child(8) { animation-delay: 0.2s; }
-    #navbody label:nth-child(10) { animation-delay: 0.25s; }
-    
-    @keyframes popIn {
-      0% {
-        transform: scale(0.5);
-        opacity: 0;
-      }
-      50% {
-        transform: scale(1.1);
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-    
-    #navbody label .li {
-      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-    
     #navbody input:checked + label .li {
-      animation: bounce 0.5s ease;
+      animation: quickBounce 0.2s ease;
     }
     
-    @keyframes bounce {
+    @keyframes quickBounce {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+      50% { transform: scale(1.15); }
     }
   }
 
