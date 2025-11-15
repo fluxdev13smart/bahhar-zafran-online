@@ -105,19 +105,20 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(45 93% 47%);
+    background: rgba(234, 179, 8, 0.3);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
-    border: 2px solid transparent;
+    border: 1px solid rgba(234, 179, 8, 0.2);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(45 93% 57%);
+    background: rgba(234, 179, 8, 0.5);
   }
 
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(45 93% 47%) transparent;
+    scrollbar-color: rgba(234, 179, 8, 0.3) transparent;
   }
 
   .arabic-text {
