@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Phone, MapPin, Copy } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import WhatsAppButton from './WhatsAppButton';
+import WhatsAppIcon from './WhatsAppIcon';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
 const ContactSection = () => {
@@ -73,7 +73,13 @@ const ContactSection = () => {
                           <Copy className="w-4 h-4" />
                         </Button>
                         {phone.whatsapp && (
-                          <WhatsAppButton onClick={() => handleWhatsAppClick(phone.whatsapp!)} />
+                          <Button
+                            onClick={() => handleWhatsAppClick(phone.whatsapp!)}
+                            size="sm"
+                            className="bg-green-600 hover:bg-green-700 text-white border border-green-500 shadow-md"
+                          >
+                            <WhatsAppIcon className="w-4 h-4" />
+                          </Button>
                         )}
                         <Button
                           onClick={() => handleCallClick(phone.call)}
