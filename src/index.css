@@ -101,24 +101,23 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(0 84% 8%);
-    border-radius: 10px;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, hsl(45 93% 47%), hsl(0 84% 60%));
+    background: hsl(45 93% 47%);
     border-radius: 10px;
-    border: 2px solid hsl(0 84% 8%);
+    border: 2px solid transparent;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, hsl(45 93% 57%), hsl(0 84% 70%));
+    background: hsl(45 93% 57%);
   }
 
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(45 93% 47%) hsl(0 84% 8%);
+    scrollbar-color: hsl(45 93% 47%) transparent;
   }
 
   .arabic-text {
