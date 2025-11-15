@@ -175,7 +175,7 @@ const ContactSection = () => {
             Visit our store today and discover the difference that traditional quality makes. 
             Our team is ready to help you find the perfect spices for your needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               onClick={() => handleCallClick(phoneNumbers[0].call)}
               size="lg"
@@ -184,14 +184,36 @@ const ContactSection = () => {
               <Phone className="w-5 h-5 mr-2" />
               Call Now
             </Button>
-            <Button
-              onClick={() => window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')}
-              size="lg"
-              className="bg-earth-600 hover:bg-earth-700 text-white border-2 border-earth-500 px-8 py-3 text-lg font-semibold rounded-full shadow-lg"
-            >
-              <MapPin className="w-5 h-5 mr-2" />
-              Get Directions
-            </Button>
+            
+            <div className="map-btn-wrapper" onClick={() => window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')}>
+              <svg height="0" width="0">
+                <filter id="land">
+                  <feTurbulence
+                    result="turb"
+                    numOctaves="7"
+                    baseFrequency="0.006"
+                    type="fractalNoise"
+                  />
+                  <feDisplacementMap
+                    yChannelSelector="G"
+                    xChannelSelector="R"
+                    scale="700"
+                    in="SourceGraphic"
+                    in2="turb"
+                  />
+                </filter>
+              </svg>
+
+              <div className="map-btn">View on Map</div>
+
+              <div className="pinpoint"></div>
+              <div className="map-container">
+                <div className="map fold-1"></div>
+                <div className="map fold-2"></div>
+                <div className="map fold-3"></div>
+                <div className="map fold-4"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
