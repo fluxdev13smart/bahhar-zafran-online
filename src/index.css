@@ -538,8 +538,8 @@
 
   /* WhatsApp Button Styles */
   .whatsapp-btn {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -587,7 +587,16 @@
   }
 
   .whatsapp-svgIcon {
-    height: 1.5em;
+    height: 1em;
     fill: white;
+  }
+
+  /* Prevent unwanted underlines in contact section */
+  #contact * {
+    text-decoration: none !important;
+  }
+  
+  #contact *:hover {
+    text-decoration: none !important;
   }
 }
