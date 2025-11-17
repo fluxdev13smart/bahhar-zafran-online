@@ -28,9 +28,10 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="animate-fade-in">
             <Card className="overflow-hidden shadow-xl border-saffron-200">
-              <div className="h-80 bg-cover bg-center" style={{
-                backgroundImage: 'url("public/download.png")'
-              }}></div>
+              <div 
+        className="h-80 bg-cover bg-center" style={{
+                backgroundImage: 'url("/download.png")' }}
+              ></div>
             </Card>
           </div>
           
