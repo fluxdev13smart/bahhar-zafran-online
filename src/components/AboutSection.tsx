@@ -29,7 +29,7 @@ const AboutSection = () => {
           <div className="animate-fade-in">
             <Card className="overflow-hidden shadow-xl border-saffron-200">
               <div className="h-80 bg-cover bg-center" style={{
-                backgroundImage: 'url("https://i.imgur.com/9YaTWxk.png")'
+                backgroundImage: 'url("public/download.png")'
               }}></div>
             </Card>
           </div>
