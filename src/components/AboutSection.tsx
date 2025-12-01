@@ -26,16 +26,15 @@ const AboutSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <Card className="overflow-hidden shadow-xl border-saffron-200 hover:shadow-2xl transition-all duration-500 group">
-              <div 
-                className="h-80 bg-cover bg-center group-hover:scale-110 transition-transform duration-700" 
-                style={{ backgroundImage: 'url("/download.png")' }}
-              ></div>
+          <div className="animate-fade-in">
+            <Card className="overflow-hidden shadow-xl border-saffron-200">
+              <div className="h-80 bg-cover bg-center" style={{
+                backgroundImage: 'url("public/download.png")'
+              }}></div>
             </Card>
           </div>
           
-          <div className={`space-y-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+          <div className="space-y-6">
             <h3 className="text-3xl font-playfair font-semibold text-earth-800 mb-4">
               Our Heritage
             </h3>
@@ -63,10 +62,10 @@ const AboutSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <Card className={`p-6 bg-white shadow-lg border-saffron-200 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+          <Card className="p-6 bg-white shadow-lg border-saffron-200 hover:shadow-xl transition-shadow duration-300">
             <CardContent className="text-center">
-              <div className="w-16 h-16 bg-saffron-100 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform duration-300 hover:scale-110">
-                <div className="w-8 h-8 bg-saffron-500 rounded-full animate-pulse-glow"></div>
+              <div className="w-16 h-16 bg-saffron-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-8 h-8 bg-saffron-500 rounded-full"></div>
               </div>
               <h4 className="text-xl font-semibold text-earth-800 mb-2">Premium Quality</h4>
               <p className="text-earth-600">
@@ -75,10 +74,10 @@ const AboutSection = () => {
             </CardContent>
           </Card>
 
-          <Card className={`p-6 bg-white shadow-lg border-saffron-200 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
+          <Card className="p-6 bg-white shadow-lg border-saffron-200 hover:shadow-xl transition-shadow duration-300">
             <CardContent className="text-center">
-              <div className="w-16 h-16 bg-spice-100 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform duration-300 hover:scale-110">
-                <div className="w-8 h-8 bg-spice-500 rounded-full animate-pulse-glow" style={{ animationDelay: '0.3s' }}></div>
+              <div className="w-16 h-16 bg-spice-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-8 h-8 bg-spice-500 rounded-full"></div>
               </div>
               <h4 className="text-xl font-semibold text-earth-800 mb-2">Traditional Methods</h4>
               <p className="text-earth-600">
@@ -87,10 +86,10 @@ const AboutSection = () => {
             </CardContent>
           </Card>
 
-          <Card className={`p-6 bg-white shadow-lg border-saffron-200 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.6s' }}>
+          <Card className="p-6 bg-white shadow-lg border-saffron-200 hover:shadow-xl transition-shadow duration-300">
             <CardContent className="text-center">
-              <div className="w-16 h-16 bg-earth-100 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform duration-300 hover:scale-110">
-                <div className="w-8 h-8 bg-earth-500 rounded-full animate-pulse-glow" style={{ animationDelay: '0.6s' }}></div>
+              <div className="w-16 h-16 bg-earth-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-8 h-8 bg-earth-500 rounded-full"></div>
               </div>
               <h4 className="text-xl font-semibold text-earth-800 mb-2">Personal Service</h4>
               <p className="text-earth-600">

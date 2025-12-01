@@ -25,29 +25,27 @@ const HeroSection = () => {
         }}
       />
       
-      {/* Floating Spice Elements with enhanced animations */}
-      <div className="absolute top-20 left-10 w-16 h-16 bg-saffron-400 rounded-full opacity-20 animate-float-slow blur-sm"></div>
-      <div className="absolute top-40 right-20 w-12 h-12 bg-spice-500 rounded-full opacity-20 animate-float-slow blur-sm" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute bottom-40 left-20 w-20 h-20 bg-earth-400 rounded-full opacity-20 animate-float-slow blur-sm" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute top-1/3 right-10 w-8 h-8 bg-saffron-300 rounded-full opacity-15 animate-float-slow blur-sm" style={{ animationDelay: '3s' }}></div>
-      <div className="absolute bottom-1/3 left-1/4 w-14 h-14 bg-spice-400 rounded-full opacity-15 animate-float-slow blur-sm" style={{ animationDelay: '2.5s' }}></div>
+      {/* Floating Spice Elements */}
+      <div className="absolute top-20 left-10 w-16 h-16 bg-saffron-400 rounded-full opacity-20 animate-float"></div>
+      <div className="absolute top-40 right-20 w-12 h-12 bg-spice-500 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute bottom-40 left-20 w-20 h-20 bg-earth-400 rounded-full opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
       
-      {/* Content with staggered animations */}
+      {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-playfair font-bold mb-4 sm:mb-6 text-shadow-lg animate-fade-in-up">
+        <div className="animate-fade-in">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-playfair font-bold mb-4 sm:mb-6 text-shadow-lg">
             Bahar Al Zafran
           </h1>
-          <div className="text-xl sm:text-2xl md:text-4xl font-noto-kufi mb-6 sm:mb-8 text-saffron-200 arabic-text animate-fade-in-up" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+          <div className="text-xl sm:text-2xl md:text-4xl font-noto-kufi mb-6 sm:mb-8 text-saffron-200 arabic-text">
             مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
           </div>
-          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
             Traditional Supermarket & Grinding Mill in Dubai
           </p>
-          <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-300 max-w-2xl mx-auto px-2 animate-fade-in-up" style={{ animationDelay: '0.6s', opacity: 0, animationFillMode: 'forwards' }}>
+          <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-300 max-w-2xl mx-auto px-2">
             Bringing you the finest saffron, herbs, spices, and oils with authentic grinding services since generations
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 animate-fade-in-up" style={{ animationDelay: '0.8s', opacity: 0, animationFillMode: 'forwards' }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2">
             <Button
               onClick={() => scrollToSection('products')}
               size="lg"

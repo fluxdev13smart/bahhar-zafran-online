@@ -60,12 +60,11 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card 
               key={index}
-              className={`group h-full hover:shadow-xl transition-all duration-500 transform hover:-translate-y-3 border-saffron-200 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-              style={{ animationDelay: `${index * 0.15}s` }}
+              className="group h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-saffron-200"
             >
             <CardContent className="p-6 text-center h-full flex flex-col">
-                <div className="text-saffron-600 mb-4 flex justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                  <service.icon className="w-10 h-10 animate-bounce-slow" />
+                <div className="text-saffron-600 mb-4 flex justify-center">
+                  <service.icon className="w-10 h-10" />
                 </div>
                 <h3 className="text-xl font-playfair font-semibold text-earth-800 mb-2">
                   {service.title}
@@ -102,32 +101,32 @@ const ServicesSection = () => {
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            <div className={`text-center transition-all duration-700 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
-              <div className="w-16 h-16 bg-saffron-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold hover:scale-110 transition-transform duration-300 animate-pulse-glow">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-saffron-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                 1
               </div>
               <h4 className="font-semibold text-earth-800 mb-2">Selection</h4>
               <p className="text-sm text-earth-600">Choose your spices and desired texture</p>
             </div>
             
-            <div className={`text-center transition-all duration-700 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.5s' }}>
-              <div className="w-16 h-16 bg-spice-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold hover:scale-110 transition-transform duration-300 animate-pulse-glow" style={{ animationDelay: '0.3s' }}>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-spice-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                 2
               </div>
               <h4 className="font-semibold text-earth-800 mb-2">Preparation</h4>
               <p className="text-sm text-earth-600">Clean and prepare spices for grinding</p>
             </div>
             
-            <div className={`text-center transition-all duration-700 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.7s' }}>
-              <div className="w-16 h-16 bg-earth-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold hover:scale-110 transition-transform duration-300 animate-pulse-glow" style={{ animationDelay: '0.6s' }}>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-earth-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                 3
               </div>
               <h4 className="font-semibold text-earth-800 mb-2">Grinding</h4>
               <p className="text-sm text-earth-600">Traditional stone mill grinding process</p>
             </div>
             
-            <div className={`text-center transition-all duration-700 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.9s' }}>
-              <div className="w-16 h-16 bg-saffron-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold hover:scale-110 transition-transform duration-300 animate-pulse-glow" style={{ animationDelay: '0.9s' }}>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-saffron-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                 4
               </div>
               <h4 className="font-semibold text-earth-800 mb-2">Packaging</h4>
