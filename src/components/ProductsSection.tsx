@@ -59,14 +59,15 @@ const ProductsSection = () => {
           {products.map((product, index) => (
             <Card 
               key={index} 
-              className="group overflow-hidden shadow-lg border-saffron-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className={`group overflow-hidden shadow-lg border-saffron-200 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative h-48 overflow-hidden">
                 <div 
-                  className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full bg-cover bg-center group-hover:scale-125 group-hover:rotate-3 transition-all duration-700"
                   style={{ backgroundImage: `url("${product.image}")` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/40 transition-all duration-500"></div>
               </div>
               
               <CardContent className="p-6">
