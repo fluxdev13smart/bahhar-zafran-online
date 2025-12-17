@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, Clock, Heart } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
+import storeImage from '@/assets/store-image.png';
 
 const AboutSection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
@@ -29,7 +30,7 @@ const AboutSection = () => {
           <div className="animate-fade-in">
             <Card className="overflow-hidden shadow-xl border-saffron-200">
               <div className="h-80 bg-cover bg-center" style={{
-                backgroundImage: 'url("public/download.png")'
+                backgroundImage: `url(${storeImage})`
               }}></div>
             </Card>
           </div>
