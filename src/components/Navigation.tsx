@@ -64,7 +64,7 @@ const Navigation = () => {
                     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50 inline-flex items-center justify-center"
+                className="text-foreground w-[calc(2rem+8px)] h-[calc(1.25rem+16px)] text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50 inline-flex items-center justify-center"
               >
                 <MapPin className="w-4 h-4" />
               </button>
