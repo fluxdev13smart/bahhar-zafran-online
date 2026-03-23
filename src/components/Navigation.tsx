@@ -113,7 +113,7 @@ const Navigation = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 z-50 p-4">
-            <div id="navbody" className="backdrop-blur-2xl bg-background/20 border border-border/30 rounded-2xl shadow-xl">
+            <div id="navbody">
               <form>
                 <ul className="ul">
                   <input 
