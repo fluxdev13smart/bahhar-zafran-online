@@ -114,10 +114,7 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 z-50 p-4">
               <div id="navbody">
-                <div className="liquid-glass--bend"></div>
-                <div className="liquid-glass--face"></div>
-                <div className="liquid-glass--edge"></div>
-              <form className="relative z-10">
+              <form>
                 <ul className="ul">
                   <input 
                     checked={activeSection === 'home'}
