@@ -176,40 +176,12 @@
   }
 
   /* Mobile Navigation Menu Styles */
-  /* Liquid Glass Effect */
-  .liquid-glass {
-    position: relative;
-    isolation: isolate;
-    background-color: rgb(255 255 255 / 20%);
-    box-shadow: 0 6px 6px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 10%);
-    user-select: none;
-  }
-
-  .liquid-glass::before,
-  .liquid-glass::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-  }
-
-  .liquid-glass::before {
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    filter: url(#glass-distortion);
-    z-index: -1;
-  }
-
-  .liquid-glass::after {
-    box-shadow: inset 2px 2px 1px 0 rgb(255 255 255 / 50%), inset -1px -1px 1px 1px rgb(255 255 255 / 50%);
-    border-radius: inherit;
-  }
-
   #navbody {
     width: 100%;
     max-width: 500px;
     height: 80px;
-    border-radius: 40px;
+    border-radius: 2rem;
+    position: relative;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -218,6 +190,33 @@
     opacity: 0;
     transform-origin: top right;
     animation: popOutMenu 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .liquid-glass--bend {
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-radius: inherit;
+    filter: url(#glass-blur);
+    inset: 0;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .liquid-glass--face {
+    border-radius: inherit;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.08);
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .liquid-glass--edge {
+    border-radius: inherit;
+    box-shadow: inset 3px 3px 3px 0 rgba(255, 255, 255, 0.45),
+      inset -3px -3px 3px 0 rgba(255, 255, 255, 0.45);
+    inset: 0;
+    position: absolute;
+    z-index: 2;
   }
 
   @keyframes popOutMenu {
