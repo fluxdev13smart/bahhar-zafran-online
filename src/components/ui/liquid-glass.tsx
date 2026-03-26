@@ -36,7 +36,7 @@ export const LiquidGlass = (props: LiquidGlassProps) => {
             </svg>
             <div
                 className={cn(
-                    "absolute inset-0 isolate",
+                    "absolute inset-0 isolate pointer-events-none",
                     "before:absolute before:inset-0 before:z-0 before:bg-[rgba(255,255,255,var(--lg-tint-opacity))] before:shadow-[inset_0_0_20px_-5px_rgba(255,255,255,0.7)] before:content-['']",
                     "after:absolute after:inset-0 after:isolate after:-z-[1] after:[filter:url(#glass-distortion)] after:backdrop-blur-[var(--lg-blur)] after:content-['']",
                     className,
