@@ -17,9 +17,10 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/30 shadow-lg overflow-hidden">
-      <LiquidGlass borderRadius={0} tintOpacity={0.08} blur={8} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <>
+      <GlassFilter />
+      <LiquidGlass className="fixed top-0 left-0 right-0 z-50 border-b border-border/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
