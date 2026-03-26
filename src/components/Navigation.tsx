@@ -217,7 +217,8 @@ const Navigation = () => {
           </div>
         )}
       </div>
-    </nav>
+      </LiquidGlass>
+    </>
   );
 };
 
