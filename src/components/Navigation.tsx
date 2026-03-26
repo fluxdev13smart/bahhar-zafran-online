@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, Home, Info, ShoppingBag, Settings, MapPin, Package } from 'lucide-react';
+import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
