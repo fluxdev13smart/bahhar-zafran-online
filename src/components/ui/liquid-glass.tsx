@@ -1,55 +1,76 @@
 "use client";
 
-import { CSSProperties } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 
-type LiquidGlassProps = {
-    borderRadius?: number;
-    tintOpacity?: number;
-    blur?: number;
-    className?: string;
-};
+interface LiquidGlassProps {
+  children?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}
 
-export const LiquidGlass = (props: LiquidGlassProps) => {
-    const { borderRadius = 0, tintOpacity = 0.08, blur = 8, className } = props;
+// SVG Filter for glass distortion
+export const GlassFilter: React.FC = () => (
+  <svg className="absolute w-0 h-0 overflow-hidden" aria-hidden="true">
+    <defs>
+      <filter id="glass-distortion" x="-50%" y="-50%" width="200%" height="200%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="4" seed="42" result="noise" />
+        <feGaussianBlur in="noise" stdDeviation="3" result="softNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="25" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+        <feGaussianBlur in="displaced" stdDeviation="0.5" result="blurred" />
+        <feComposite in="blurred" in2="SourceGraphic" operator="over" />
+      </filter>
+    </defs>
+  </svg>
+);
 
-    return (
-        <>
-            <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" className="absolute overflow-hidden">
-                <defs>
-                    <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%">
-                        <feTurbulence
-                            type="fractalNoise"
-                            baseFrequency="0.008 0.008"
-                            numOctaves="2"
-                            seed="92"
-                            result="noise" />
-                        <feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
-                        <feDisplacementMap
-                            in="SourceGraphic"
-                            in2="blurred"
-                            scale="80"
-                            xChannelSelector="R"
-                            yChannelSelector="G" />
-                    </filter>
-                </defs>
-            </svg>
-            <div
-                className={cn(
-                    "absolute inset-0 isolate",
-                    "before:absolute before:inset-0 before:z-0 before:bg-[rgba(255,255,255,var(--lg-tint-opacity))] before:shadow-[inset_0_0_20px_-5px_rgba(255,255,255,0.7)] before:content-['']",
-                    "after:absolute after:inset-0 after:isolate after:-z-[1] after:[filter:url(#glass-distortion)] after:backdrop-blur-[var(--lg-blur)] after:content-['']",
-                    className,
-                )}
-                style={
-                    {
-                        "--lg-border-radius": `${borderRadius}px`,
-                        "--lg-tint-opacity": tintOpacity,
-                        "--lg-blur": `${blur}px`,
-                        borderRadius: `${borderRadius}px`,
-                    } as CSSProperties
-                }
-            />
-        </>
-    );
+// Glass Effect Wrapper
+export const LiquidGlass: React.FC<LiquidGlassProps> = ({
+  children,
+  className = "",
+  style = {},
+}) => {
+  return (
+    <div
+      className={cn(
+        "relative overflow-hidden",
+        className
+      )}
+      style={{
+        boxShadow: "0 6px 6px rgba(0, 0, 0, 0.15), 0 0 20px rgba(0, 0, 0, 0.08)",
+        ...style,
+      }}
+    >
+      {/* Glass refraction layer */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backdropFilter: "blur(16px) saturate(1.8)",
+          WebkitBackdropFilter: "blur(16px) saturate(1.8)",
+          filter: "url(#glass-distortion)",
+        }}
+      />
+
+      {/* Tint layer */}
+      <div
+        className="absolute inset-0 z-[1] bg-background/20"
+        style={{
+          boxShadow: "inset 0 0 30px -8px rgba(255,255,255,0.5)",
+        }}
+      />
+
+      {/* Specular highlight */}
+      <div
+        className="absolute inset-x-0 top-0 z-[2] h-[40%] opacity-30"
+        style={{
+          background: "linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-[3]">
+        {children}
+      </div>
+    </div>
+  );
 };
