@@ -12,29 +12,29 @@ const HeroSection = () => {
   };
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       ref={ref as React.RefObject<HTMLElement>}
       className={`relative min-h-screen pt-20 flex items-center justify-center overflow-hidden z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     >
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("https://i.imgur.com/UuCQ8Z5.png")'
         }}
       />
-      
+
       {/* Floating Spice Elements */}
       <div className="absolute top-20 left-10 w-16 h-16 bg-saffron-400 rounded-full opacity-20 animate-float"></div>
       <div className="absolute top-40 right-20 w-12 h-12 bg-spice-500 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
       <div className="absolute bottom-40 left-20 w-20 h-20 bg-earth-400 rounded-full opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
-      
+
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div className="animate-fade-in">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-playfair font-bold mb-4 sm:mb-6 text-shadow-lg">
-            Bahar Al Zafran <span className="animate-swing">🇦🇪</span>
+            Bahar Al Zafran
           </h1>
           <div className="text-xl sm:text-2xl md:text-4xl font-noto-kufi mb-6 sm:mb-8 text-saffron-200 arabic-text">
             مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
