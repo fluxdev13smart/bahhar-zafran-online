@@ -224,7 +224,6 @@ const Navigation = () => {
                 </ul>
               </form>
             </div>
-          </div>
         </div>
       </div>
     </nav>
