@@ -9,7 +9,7 @@ const ProductsSection = () => {
     {
       title: 'Premium Saffron',
       arabicTitle: 'زعفران فاخر',
-      description: 'The finest saffron threads sourced from Kashmir and Iran, known for their intense aroma and deep color.',
+      description: 'The finest saffron threads sourced from Kashmir, known for their intense aroma and deep color.',
       image: 'https://i.herbalreality.com/wp-content/uploads/2022/05/21124107/saffron-Crocus-sativus-wooden-bowl-scaled.jpg',
       features: ['Grade A Quality', 'Hand-picked', 'Lab Tested', 'Authentic Origin']
     },
