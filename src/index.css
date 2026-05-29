@@ -180,9 +180,16 @@
     width: 100%;
     max-width: 500px;
     height: 80px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 40px;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, hsl(0 84% 12% / 0.75), hsl(0 84% 18% / 0.55));
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-radius: 28px;
+    border: 1px solid hsl(45 93% 55% / 0.35);
+    box-shadow:
+      0 20px 50px -10px hsl(0 84% 8% / 0.6),
+      0 0 0 1px hsl(45 93% 47% / 0.15),
+      inset 0 1px 0 hsl(45 93% 70% / 0.25),
+      inset 0 -1px 0 hsl(0 84% 5% / 0.4);
     align-items: center;
     justify-content: center;
     display: flex;
@@ -191,6 +198,16 @@
     opacity: 0;
     transform-origin: top right;
     animation: popOutMenu 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #navbody::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top, hsl(45 93% 55% / 0.18), transparent 60%);
+    pointer-events: none;
   }
 
   @keyframes popOutMenu {
@@ -248,26 +265,33 @@
   .svg .text {
     font-size: 10px;
     font-weight: 500;
-    color: hsl(var(--foreground));
-    opacity: 0.7;
+    color: hsl(45 93% 88%);
+    opacity: 0.75;
+  }
+
+  .svg {
+    color: hsl(45 93% 85%);
   }
 
   .ul .li .svg:hover {
     transform: translateY(-2px);
-    background-color: hsl(var(--primary) / 0.1);
+    background: hsl(45 93% 55% / 0.15);
+    box-shadow: inset 0 0 0 1px hsl(45 93% 55% / 0.25);
   }
 
   .radio:checked + label .li .svg {
-    background-color: hsl(var(--primary));
-    color: white;
+    background: linear-gradient(135deg, hsl(45 93% 55%), hsl(38 93% 45%));
+    color: hsl(0 84% 12%);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px hsl(var(--primary) / 0.3);
+    box-shadow:
+      0 6px 16px hsl(45 93% 47% / 0.45),
+      inset 0 1px 0 hsl(45 93% 80% / 0.6);
   }
 
   .radio:checked + label .li .svg .text {
-    color: white;
+    color: hsl(0 84% 12%);
     opacity: 1;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   /* Mobile navigation click animation */
