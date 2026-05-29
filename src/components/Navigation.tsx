@@ -225,7 +225,7 @@ const Navigation = () => {
               </form>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
