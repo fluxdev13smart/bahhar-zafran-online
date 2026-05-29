@@ -113,9 +113,20 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 z-50 p-4">
-            <div id="navbody" className="backdrop-blur-2xl bg-background/20 border border-border/30 rounded-2xl shadow-xl">
+        <div
+          className={`md:hidden absolute top-full left-0 right-0 z-50 px-4 origin-top transform-gpu transition-all ease-[cubic-bezier(0.22,1,0.36,1)] duration-500 ${
+            isMenuOpen
+              ? 'opacity-100 translate-y-0 scale-y-100 pointer-events-auto pt-4 pb-4'
+              : 'opacity-0 -translate-y-2 scale-y-95 pointer-events-none pt-0 pb-0'
+          }`}
+          style={{
+            maxHeight: isMenuOpen ? '600px' : '0px',
+            overflow: 'hidden',
+            transitionProperty: 'opacity, transform, max-height, padding',
+          }}
+          aria-hidden={!isMenuOpen}
+        >
+          <div id="navbody" className="backdrop-blur-2xl bg-background/20 border border-border/30 rounded-2xl shadow-xl">
               <form>
                 <ul className="ul">
                   <input 
