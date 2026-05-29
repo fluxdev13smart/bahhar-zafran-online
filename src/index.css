@@ -606,4 +606,19 @@
   #contact *:hover {
     text-decoration: none !important;
   }
+
+  @keyframes swing {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(15deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(8deg); }
+    80% { transform: rotate(-4deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  .animate-swing {
+    animation: swing 2s ease-in-out infinite;
+    transform-origin: top center;
+    display: inline-block;
+  }
 }
