@@ -1,103 +1,85 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Award, Clock, Heart } from 'lucide-react';
+import { Sparkles, Wheat, HandHeart } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import storeImage from '@/assets/store-image.png';
 
+const pillars = [
+  {
+    icon: Sparkles,
+    title: 'Premium quality',
+    body: 'Sourced from trusted growers worldwide, graded and checked before it ever reaches a shelf.',
+  },
+  {
+    icon: Wheat,
+    title: 'Traditional methods',
+    body: 'Stone milling preserves the natural oils and aromatics that industrial grinding burns away.',
+  },
+  {
+    icon: HandHeart,
+    title: 'Personal service',
+    body: 'Our team advises on blends, textures and storage, and grinds to your exact preference.',
+  },
+];
+
 const AboutSection = () => {
-  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
-  
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.15 });
+
   return (
-    <section 
-      id="about" 
+    <section
+      id="about"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 bg-gradient-to-br from-earth-50 to-saffron-50 relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className="relative z-10 py-24 sm:py-32"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-earth-800 mb-4">
-            About Us
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <header className={`reveal ${isVisible ? 'reveal-in' : ''} max-w-2xl`}>
+          <p className="text-xs uppercase tracking-[0.22em] text-primary/80">Our story</p>
+          <h2 className="mt-3 font-playfair font-bold display-tight text-[clamp(2rem,5.5vw,3.5rem)]">
+            A legacy of spice, in the heart of Dubai
           </h2>
-          <div className="text-2xl font-amiri text-saffron-700 mb-6 arabic-text">
-            من نحن
-          </div>
-          <p className="text-xl text-earth-600 max-w-3xl mx-auto">
-            A legacy of quality and tradition in the heart of Dubai
-          </p>
-        </div>
+          <div className="mt-3 font-noto-kufi text-lg text-muted-foreground arabic-text">من نحن</div>
+        </header>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="animate-fade-in">
-            <Card className="overflow-hidden shadow-xl border-saffron-200">
-              <div className="h-80 bg-cover bg-center" style={{
-                backgroundImage: `url(${storeImage})`
-              }}></div>
-            </Card>
+        <div className={`reveal ${isVisible ? 'reveal-in' : ''} mt-14 grid lg:grid-cols-[1.05fr_1fr] gap-8 items-stretch`} style={{ transitionDelay: '80ms' }}>
+          <div className="glass rounded-[2rem] overflow-hidden">
+            <div
+              className="h-72 sm:h-full min-h-[20rem] bg-cover bg-center"
+              style={{ backgroundImage: `url(${storeImage})` }}
+              role="img"
+              aria-label="Bahar Al Zafran storefront in Dubai"
+            />
           </div>
-          
-          <div className="space-y-6">
-            <h3 className="text-3xl font-playfair font-semibold text-earth-800 mb-4">
-              Our Heritage
-            </h3>
-            <p className="text-lg text-earth-700 leading-relaxed">
-              For generations, Bahar Al Zafran has been synonymous with quality and authenticity in Dubai's spice trade. 
-              Our traditional supermarket and grinding mill has served countless families, bringing them the finest saffron, 
-              herbs, and spices from around the world.
+
+          <div className="glass rounded-[2rem] p-7 sm:p-10 flex flex-col justify-center">
+            <h3 className="font-playfair text-2xl sm:text-3xl font-semibold">Our heritage</h3>
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              For generations, Bahar Al Zafran has been a name families trust for saffron, herbs
+              and spices. Our supermarket and grinding mill sit at the crossroads of the city's
+              oldest spice trade and the way people cook today.
             </p>
-            <p className="text-lg text-earth-700 leading-relaxed">
-              Located in the bustling heart of Dubai, our store represents a bridge between traditional spice trading 
-              and modern convenience. We take pride in our custom grinding services, ensuring that every spice retains 
-              its natural essence and potency.
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Every order can be ground to order on traditional stone mills, so the aroma you open
+              at home is the aroma we sealed in the shop.
             </p>
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              <div className="text-center p-4 bg-saffron-100 rounded-lg">
-                <div className="text-3xl font-bold text-saffron-700">25+</div>
-                <div className="text-sm text-earth-600">Years of Experience</div>
-              </div>
-              <div className="text-center p-4 bg-earth-100 rounded-lg">
-                <div className="text-3xl font-bold text-earth-700">1000+</div>
-                <div className="text-sm text-earth-600">Happy Customers</div>
-              </div>
-            </div>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card className="p-6 bg-white shadow-lg border-saffron-200 hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="text-center">
-              <div className="w-16 h-16 bg-saffron-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <div className="w-8 h-8 bg-saffron-500 rounded-full"></div>
-              </div>
-              <h4 className="text-xl font-semibold text-earth-800 mb-2">Premium Quality</h4>
-              <p className="text-earth-600">
-                We source only the finest ingredients from trusted suppliers worldwide, ensuring exceptional quality in every product.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="p-6 bg-white shadow-lg border-saffron-200 hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="text-center">
-              <div className="w-16 h-16 bg-spice-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <div className="w-8 h-8 bg-spice-500 rounded-full"></div>
-              </div>
-              <h4 className="text-xl font-semibold text-earth-800 mb-2">Traditional Methods</h4>
-              <p className="text-earth-600">
-                Our time-honored grinding techniques preserve the natural oils and flavors that make our spices exceptional.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="p-6 bg-white shadow-lg border-saffron-200 hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="text-center">
-              <div className="w-16 h-16 bg-earth-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <div className="w-8 h-8 bg-earth-500 rounded-full"></div>
-              </div>
-              <h4 className="text-xl font-semibold text-earth-800 mb-2">Personal Service</h4>
-              <p className="text-earth-600">
-                Our knowledgeable staff provides personalized recommendations and custom grinding services for every customer.
-              </p>
-            </CardContent>
-          </Card>
+        <div className="mt-8 grid md:grid-cols-3 gap-5">
+          {pillars.map((p, i) => (
+            <article
+              key={p.title}
+              className={`reveal ${isVisible ? 'reveal-in' : ''} lift glass rounded-[1.75rem] p-7`}
+              style={{ transitionDelay: `${140 + i * 70}ms` }}
+            >
+              <span
+                className="inline-flex h-11 w-11 items-center justify-center rounded-2xl text-primary-foreground"
+                style={{ background: 'var(--gradient-gold)' }}
+              >
+                <p.icon className="w-5 h-5" />
+              </span>
+              <h4 className="mt-5 text-lg font-semibold">{p.title}</h4>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
