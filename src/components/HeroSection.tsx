@@ -15,10 +15,10 @@ const HeroSection = () => {
       ref={ref as React.RefObject<HTMLElement>}
       className="relative min-h-[100svh] flex items-end overflow-hidden z-10"
     >
-      {/* Background layer */}
+      {/* Hero Background using exterior.webp */}
       <div
         className="absolute inset-0 bg-cover bg-center scale-105"
-        style={{ backgroundImage: 'url("/instore.webp")' }}
+        style={{ backgroundImage: 'url("/exterior.webp")' }}
         aria-hidden="true"
       />
       <div
@@ -35,7 +35,6 @@ const HeroSection = () => {
         aria-hidden="true"
       />
 
-      {/* Content */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-20 pt-36 sm:pb-28">
         <div className={`reveal ${isVisible ? 'reveal-in' : ''}`}>
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs sm:text-sm text-primary/90">
