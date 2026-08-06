@@ -1,232 +1,167 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Phone, Home, Info, ShoppingBag, Settings, MapPin, Package } from 'lucide-react';
-import { LiquidGlass } from '@/components/ui/liquid-glass';
+import React, { useEffect, useState } from 'react';
+import { Phone, Home, Info, Package, Settings, MapPin } from 'lucide-react';
+
+const links = [
+  { id: 'home', label: 'Home', icon: Home },
+  { id: 'about', label: 'About', icon: Info },
+  { id: 'products', label: 'Products', icon: Package },
+  { id: 'services', label: 'Services', icon: Settings },
+  { id: 'contact', label: 'Contact', icon: Phone },
+];
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px' },
+    );
+    links.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     setActiveSection(sectionId);
     setIsMenuOpen(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/30 shadow-lg overflow-visible">
-      <LiquidGlass borderRadius={0} tintOpacity={0.08} blur={8} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-playfair font-bold">
-              <span className="gradient-text">Bahar Al Zafran</span>
-            </h1>
-            <p className="text-xs text-secondary arabic-text mt-1">
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <nav
+          className={`pointer-events-auto mt-3 flex items-center justify-between gap-3 rounded-full pl-5 pr-2 py-2 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            scrolled ? 'glass-strong' : 'glass'
+          }`}
+        >
+          <button
+            onClick={() => scrollToSection('home')}
+            className="press text-left leading-tight"
+            aria-label="Bahar Al Zafran — back to top"
+          >
+            <span className="block font-playfair text-base sm:text-lg font-bold gold-text">
+              Bahar Al Zafran
+            </span>
+            <span className="block font-noto-kufi text-[10px] text-muted-foreground arabic-text">
               مطحنة و اعشاب بحرالزعفران
-            </p>
+            </span>
+          </button>
+
+          {/* Desktop segmented control */}
+          <div className="hidden md:flex items-center gap-1 rounded-full border border-border bg-background/40 p-1">
+            {links.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className={`press relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300 ${
+                  activeSection === link.id
+                    ? 'text-primary-foreground'
+                    : 'text-foreground/75 hover:text-foreground'
+                }`}
+              >
+                {activeSection === link.id && (
+                  <span
+                    className="absolute inset-0 rounded-full"
+                    style={{ background: 'var(--gradient-gold)' }}
+                    aria-hidden="true"
+                  />
+                )}
+                <span className="relative">{link.label}</span>
+              </button>
+            ))}
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-3">
-              <button
-                onClick={() => scrollToSection('home')}
-                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
-              >
-                About Us
-              </button>
-              <button
-                onClick={() => scrollToSection('services')}
-                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
-              >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="text-foreground px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50"
-              >
-                Contact
-              </button>
-              <button
-                onClick={() => {
-                  const headings = Array.from(document.querySelectorAll('h3'));
-                  const element = headings.find(h => h.textContent?.includes('Ready to Experience Authentic Spices?'));
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  }
-                }}
-                className="text-foreground w-[calc(2rem+8px)] h-[calc(1.25rem+16px)] text-sm font-medium transition-all duration-300 rounded-full backdrop-blur-xl bg-background/40 border border-border/30 shadow-sm hover:bg-background/60 hover:shadow-md hover:border-border/50 inline-flex items-center justify-center"
-              >
-                <MapPin className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Contact Button */}
-          <div className="hidden lg:flex items-center">
-            <Button
-              onClick={() => scrollToSection('contact')}
-              className="backdrop-blur-xl bg-primary/90 hover:bg-primary text-primary-foreground flex items-center gap-2 rounded-full border border-primary/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-            >
-              <Phone className="w-4 h-4" />
-              Call Now
-            </Button>
-          </div>
-          
-          {/* Tablet Contact Button - Compact */}
-          <div className="hidden md:flex lg:hidden items-center">
-            <Button
-              onClick={() => scrollToSection('contact')}
-              size="sm"
-              className="backdrop-blur-xl bg-primary/90 hover:bg-primary text-primary-foreground flex items-center gap-1 rounded-full border border-primary/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => window.open('tel:+971 4 285 7715', '_self')}
+              className="press hidden sm:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground"
+              style={{ background: 'var(--gradient-gold)' }}
             >
               <Phone className="w-4 h-4" />
               Call
-            </Button>
-          </div>
+            </button>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <label className="hamburger">
-              <input 
-                type="checkbox" 
+            {/* Mobile menu toggle */}
+            <label className="hamburger md:hidden pr-1" aria-label="Toggle menu">
+              <input
+                type="checkbox"
                 checked={isMenuOpen}
                 onChange={() => setIsMenuOpen(!isMenuOpen)}
               />
               <svg viewBox="0 0 32 32">
-                <path className="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-                <path className="line" d="M7 16 27 16"></path>
+                <path
+                  className="line line-top-bottom"
+                  d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+                />
+                <path className="line" d="M7 16 27 16" />
               </svg>
             </label>
           </div>
-        </div>
+        </nav>
 
-        {/* Mobile Menu */}
+        {/* Mobile sheet */}
         <div
-          className={`md:hidden absolute top-full left-0 right-0 z-50 px-4 origin-top transform-gpu transition-all ease-[cubic-bezier(0.22,1,0.36,1)] duration-500 ${
+          className={`pointer-events-auto md:hidden origin-top transform-gpu overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             isMenuOpen
-              ? 'opacity-100 translate-y-0 scale-y-100 pointer-events-auto pt-4 pb-4'
-              : 'opacity-0 -translate-y-2 scale-y-95 pointer-events-none pt-0 pb-0'
+              ? 'opacity-100 translate-y-0 scale-100 mt-3'
+              : 'opacity-0 -translate-y-2 scale-[0.97] mt-0 pointer-events-none'
           }`}
-          style={{
-            maxHeight: isMenuOpen ? '600px' : '0px',
-            overflow: 'hidden',
-            transitionProperty: 'opacity, transform, max-height, padding',
-          }}
+          style={{ maxHeight: isMenuOpen ? '30rem' : '0rem' }}
           aria-hidden={!isMenuOpen}
         >
-          <div id="navbody" className="backdrop-blur-2xl bg-background/20 border border-border/30 rounded-2xl shadow-xl">
-              <form>
-                <ul className="ul">
-                  <input 
-                    checked={activeSection === 'home'}
-                    name="rad" 
-                    className="radio" 
-                    id="choose1" 
-                    type="radio" 
-                    onChange={() => scrollToSection('home')}
-                  />
-                  <label htmlFor="choose1">
-                    <li className="li">
-                      <div className="svg">
-                        <Home className="w-5 h-5" />
-                        <span className="text">Home</span>
-                      </div>
-                    </li>
-                  </label>
-                  
-                  <input 
-                    checked={activeSection === 'about'}
-                    className="radio" 
-                    name="rad" 
-                    id="choose2" 
-                    type="radio"
-                    onChange={() => scrollToSection('about')}
-                  />
-                  <label htmlFor="choose2">
-                    <li className="li">
-                      <div className="svg">
-                        <Info className="w-5 h-5" />
-                        <span className="text">About</span>
-                      </div>
-                    </li>
-                  </label>
-                  
-                  <input 
-                    checked={activeSection === 'services'}
-                    className="radio" 
-                    name="rad" 
-                    id="choose3" 
-                    type="radio"
-                    onChange={() => scrollToSection('services')}
-                  />
-                  <label htmlFor="choose3">
-                    <li className="li">
-                      <div className="svg">
-                        <Settings className="w-5 h-5" />
-                        <span className="text">Services</span>
-                      </div>
-                    </li>
-                  </label>
-                  
-                  <input 
-                    checked={activeSection === 'contact'}
-                    className="radio" 
-                    name="rad" 
-                    id="choose4" 
-                    type="radio"
-                    onChange={() => scrollToSection('contact')}
-                  />
-                  <label htmlFor="choose4">
-                    <li className="li">
-                      <div className="svg">
-                        <Phone className="w-5 h-5" />
-                        <span className="text">Contact</span>
-                      </div>
-                    </li>
-                  </label>
-                  
-                  <input 
-                    checked={activeSection === 'location'}
-                    className="radio" 
-                    name="rad" 
-                    id="choose5" 
-                    type="radio"
-                    onChange={() => {
-                      const headings = Array.from(document.querySelectorAll('h3'));
-                      const element = headings.find(h => h.textContent?.includes('Ready to Experience Authentic Spices?'));
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                      }
-                      setActiveSection('location');
-                      setIsMenuOpen(false);
-                    }}
-                  />
-                  <label htmlFor="choose5">
-                    <li className="li">
-                      <div className="svg">
-                        <MapPin className="w-5 h-5" />
-                        <span className="text">Location</span>
-                      </div>
-                    </li>
-                  </label>
-                </ul>
-              </form>
-            </div>
+          <ul className="glass-strong rounded-[1.75rem] p-2">
+            {links.map((link) => (
+              <li key={link.id}>
+                <button
+                  onClick={() => scrollToSection(link.id)}
+                  className={`press flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium transition-colors duration-300 ${
+                    activeSection === link.id
+                      ? 'text-primary-foreground'
+                      : 'text-foreground/85 hover:bg-background/40'
+                  }`}
+                  style={
+                    activeSection === link.id
+                      ? { background: 'var(--gradient-gold)' }
+                      : undefined
+                  }
+                >
+                  <link.icon className="w-5 h-5" />
+                  {link.label}
+                </button>
+              </li>
+            ))}
+            <li>
+              <button
+                onClick={() =>
+                  window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')
+                }
+                className="press flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium text-foreground/85 hover:bg-background/40"
+              >
+                <MapPin className="w-5 h-5" />
+                Directions
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 
