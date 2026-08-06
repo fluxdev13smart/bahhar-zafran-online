@@ -1,7 +1,6 @@
 import React from 'react';
 import { Sparkles, Wheat, HandHeart } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
-import storeImage from '@public/download.webp';
 
 const pillars = [
   {
