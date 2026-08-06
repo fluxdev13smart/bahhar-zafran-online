@@ -1,138 +1,116 @@
-
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Wheat, ChefHat, Truck, Scale } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
+const services = [
+  {
+    title: 'Custom Spice Grinding',
+    arabicTitle: 'طحن البهارات المخصص',
+    description: 'Stone milling that preserves natural oils and flavour, at the texture you ask for.',
+    features: ['Stone mill technology', 'Various textures', 'Same-day service', 'Bulk processing'],
+    icon: Wheat,
+  },
+  {
+    title: 'Spice Consultation',
+    arabicTitle: 'استشارات البهارات',
+    description: 'Advice on selection, pairing, storage and quality from people who handle it daily.',
+    features: ['Recipe recommendations', 'Spice pairing', 'Quality assessment', 'Storage tips'],
+    icon: ChefHat,
+  },
+  {
+    title: 'Wholesale Supply',
+    arabicTitle: 'التوريد بالجملة',
+    description: 'Bulk supply for restaurants, hotels and commercial kitchens across Dubai.',
+    features: ['Competitive pricing', 'Regular delivery', 'Quality guarantee', 'Custom packaging'],
+    icon: Truck,
+  },
+  {
+    title: 'Custom Blending',
+    arabicTitle: 'خلط مخصص',
+    description: 'Develop your own signature blend with precise, repeatable measurements.',
+    features: ['Recipe development', 'Precise measurements', 'Consistent quality'],
+    icon: Scale,
+  },
+];
+
+const steps = [
+  { n: '01', t: 'Selection', d: 'Choose your spices and the texture you want' },
+  { n: '02', t: 'Preparation', d: 'Cleaning and sorting before the mill' },
+  { n: '03', t: 'Grinding', d: 'Traditional stone milling, slow and cool' },
+  { n: '04', t: 'Packaging', d: 'Sealed fresh with a final quality check' },
+];
+
 const ServicesSection = () => {
-  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
-  const services = [
-    {
-      title: 'Custom Spice Grinding',
-      arabicTitle: 'طحن البهارات المخصص',
-      description: 'Professional grinding services using traditional stone mills to preserve natural oils and flavors.',
-      features: ['Stone Mill Technology', 'Various Textures', 'Same-Day Service', 'Bulk Processing'],
-      icon: Wheat
-    },
-    {
-      title: 'Spice Consultation',
-      arabicTitle: 'استشارات البهارات',
-      description: 'Expert advice on spice selection, usage, and storage from our experienced team.',
-      features: ['Recipe Recommendations', 'Spice Pairing', 'Quality Assessment', 'Storage Tips'],
-      icon: ChefHat
-    },
-    {
-      title: 'Wholesale Supply',
-      arabicTitle: 'التوريد بالجملة',
-      description: 'Bulk supply services for restaurants, hotels, and commercial kitchens.',
-      features: ['Competitive Pricing', 'Regular Delivery', 'Quality Guarantee', 'Custom Packaging'],
-      icon: Truck
-    },
-    {
-      title: 'Custom Blending',
-      arabicTitle: 'خلط مخصص',
-      description: 'Create your own signature spice blends with our custom mixing services.',
-      features: ['Recipe Development', 'Precise Measurements', 'Consistent Quality'],
-      icon: Scale
-    }
-  ];
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
-    <section 
-      id="services" 
+    <section
+      id="services"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 bg-background relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className="relative z-10 py-24 sm:py-32"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-earth-800 mb-4">
-            Our Services
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <header className={`reveal ${isVisible ? 'reveal-in' : ''} max-w-2xl`}>
+          <p className="text-xs uppercase tracking-[0.22em] text-primary/80">What we do</p>
+          <h2 className="mt-3 font-playfair font-bold display-tight text-[clamp(2rem,5.5vw,3.5rem)]">
+            Our services
           </h2>
-          <div className="text-2xl font-amiri text-saffron-700 mb-6 arabic-text">
-            خدماتنا
-          </div>
-          <p className="text-xl text-earth-600 max-w-3xl mx-auto">
-            Professional services designed to meet all your spice and grinding needs
-          </p>
-        </div>
+          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground font-noto-kufi">خدماتنا</div>
+        </header>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {services.map((service, index) => (
-            <Card 
-              key={index}
-              className="group h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-saffron-200"
+        <div className="mt-14 grid sm:grid-cols-2 gap-5">
+          {services.map((service, i) => (
+            <article
+              key={service.title}
+              className={`reveal ${isVisible ? 'reveal-in' : ''} lift glass rounded-[1.75rem] p-7 sm:p-8 h-full`}
+              style={{ transitionDelay: `${i * 70}ms` }}
             >
-            <CardContent className="p-6 text-center h-full flex flex-col">
-                <div className="text-saffron-600 mb-4 flex justify-center">
-                  <service.icon className="w-10 h-10" />
+              <div className="flex items-start gap-4">
+                <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 text-primary">
+                  <service.icon className="w-5 h-5" />
+                </span>
+                <div>
+                  <h3 className="font-playfair text-xl font-semibold">{service.title}</h3>
+                  <div className="font-noto-kufi text-sm text-muted-foreground arabic-text">
+                    {service.arabicTitle}
+                  </div>
                 </div>
-                <h3 className="text-xl font-playfair font-semibold text-earth-800 mb-2">
-                  {service.title}
-                </h3>
-                <div className="text-sm font-amiri text-saffron-700 mb-4 arabic-text">
-                  {service.arabicTitle}
-                </div>
-                <p className="text-earth-600 text-sm mb-6 flex-grow">
-                  {service.description}
-                </p>
-                
-                <div className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center justify-center text-xs text-earth-700">
-                      <div className="w-1.5 h-1.5 bg-saffron-500 rounded-full mr-2"></div>
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                {service.description}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {service.features.map((f) => (
+                  <span
+                    key={f}
+                    className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-[11px] text-foreground/80"
+                  >
+                    {f}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
 
-        {/* Process Section */}
-        <div className="bg-gradient-to-r from-earth-100 to-saffron-100 rounded-3xl p-8 md:p-12">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-playfair font-bold text-earth-800 mb-4">
-              Our Grinding Process
-            </h3>
-            <p className="text-lg text-earth-600 max-w-2xl mx-auto">
-              Experience the traditional art of spice grinding with modern quality standards
-            </p>
-          </div>
+        <div
+          className={`reveal ${isVisible ? 'reveal-in' : ''} glass-strong mt-8 rounded-[2rem] p-8 sm:p-12`}
+          style={{ transitionDelay: '300ms' }}
+        >
+          <h3 className="font-playfair text-2xl sm:text-3xl font-bold">Our grinding process</h3>
+          <p className="mt-3 max-w-xl text-muted-foreground">
+            The traditional craft, held to modern standards.
+          </p>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-saffron-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                1
-              </div>
-              <h4 className="font-semibold text-earth-800 mb-2">Selection</h4>
-              <p className="text-sm text-earth-600">Choose your spices and desired texture</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-spice-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                2
-              </div>
-              <h4 className="font-semibold text-earth-800 mb-2">Preparation</h4>
-              <p className="text-sm text-earth-600">Clean and prepare spices for grinding</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-earth-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                3
-              </div>
-              <h4 className="font-semibold text-earth-800 mb-2">Grinding</h4>
-              <p className="text-sm text-earth-600">Traditional stone mill grinding process</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-saffron-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                4
-              </div>
-              <h4 className="font-semibold text-earth-800 mb-2">Packaging</h4>
-              <p className="text-sm text-earth-600">Fresh packaging and quality assurance</p>
-            </div>
-          </div>
+          <ol className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {steps.map((s) => (
+              <li key={s.n} className="relative pl-5 border-l border-primary/25">
+                <span className="text-sm font-semibold text-primary tabular-nums">{s.n}</span>
+                <h4 className="mt-2 font-semibold">{s.t}</h4>
+                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

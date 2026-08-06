@@ -1,111 +1,129 @@
-
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Check } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
+const products = [
+  {
+    title: 'Premium Saffron',
+    arabicTitle: 'زعفران فاخر',
+    description: 'The finest threads from Kashmir — intense aroma, deep colour, honest grading.',
+    image: 'https://i.herbalreality.com/wp-content/uploads/2022/05/21124107/saffron-Crocus-sativus-wooden-bowl-scaled.jpg',
+    features: ['Grade A quality', 'Hand-picked', 'Lab tested', 'Authentic origin'],
+  },
+  {
+    title: 'Mixed Herbs & Spices',
+    arabicTitle: 'أعشاب وبهارات مختلطة',
+    description: 'Cardamom, cinnamon, black pepper and traditional house blends, ground fresh.',
+    image: 'https://etimg.etb2bimg.com/photo/110025886.cms',
+    features: ['Fresh ground', 'Custom blends', 'Traditional recipes', 'Many options'],
+  },
+  {
+    title: 'Essential Oils',
+    arabicTitle: 'زيوت عطرية',
+    description: 'Pure oils extracted from herbs and spices for culinary and therapeutic use.',
+    image: 'https://health.osu.edu/-/media/health/images/stories/2018/05/essential-oils.jpg',
+    features: ['100% pure', 'No additives', 'Food grade', 'Various sizes'],
+  },
+  {
+    title: 'Custom Grinding',
+    arabicTitle: 'طحن مخصص',
+    description: 'Bring your own spices and we mill them on traditional stone to your texture.',
+    image: 'https://i5.walmartimages.com/asr/ab7a5623-f78e-4f30-8600-b3c5c87da75f.c8a86ff1220b9de3da80692e95818a9c.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF',
+    features: ['Stone mill', 'Fresh grinding', 'Custom texture', 'Same-day service'],
+  },
+];
+
 const ProductsSection = () => {
-  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
-  const products = [
-    {
-      title: 'Premium Saffron',
-      arabicTitle: 'زعفران فاخر',
-      description: 'The finest saffron threads sourced from Kashmir, known for their intense aroma and deep color.',
-      image: 'https://i.herbalreality.com/wp-content/uploads/2022/05/21124107/saffron-Crocus-sativus-wooden-bowl-scaled.jpg',
-      features: ['Grade A Quality', 'Hand-picked', 'Lab Tested', 'Authentic Origin']
-    },
-    {
-      title: 'Mixed Herbs & Spices',
-      arabicTitle: 'أعشاب وبهارات مختلطة',
-      description: 'A curated selection of herbs and spices including cardamom, cinnamon, black pepper, and traditional blends.',
-      image: 'https://etimg.etb2bimg.com/photo/110025886.cms',
-      features: ['Fresh Ground', 'Custom Blends', 'Traditional Recipes', 'Various Options']
-    },
-    {
-      title: 'Essential Oils',
-      arabicTitle: 'زيوت عطرية',
-      description: 'Pure essential oils extracted from herbs and spices, perfect for culinary and therapeutic uses.',
-      image: 'https://health.osu.edu/-/media/health/images/stories/2018/05/essential-oils.jpg',
-      features: ['100% Pure', 'No Additives', 'Food Grade', 'Various Sizes']
-    },
-    {
-      title: 'Custom Grinding',
-      arabicTitle: 'طحن مخصص',
-      description: 'Professional grinding services for your spices and herbs using traditional stone mills.',
-      image: 'https://i5.walmartimages.com/asr/ab7a5623-f78e-4f30-8600-b3c5c87da75f.c8a86ff1220b9de3da80692e95818a9c.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF',
-      features: ['Stone Mill', 'Fresh Grinding', 'Custom Texture', 'Same Day Service']
-    }
-  ];
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
-    <section 
-      id="products" 
+    <section
+      id="products"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 bg-background relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className="relative z-10 py-24 sm:py-32"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-earth-800 mb-4">
-            Our Products
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <header className={`reveal ${isVisible ? 'reveal-in' : ''} max-w-2xl`}>
+          <p className="text-xs uppercase tracking-[0.22em] text-primary/80">The shelves</p>
+          <h2 className="mt-3 font-playfair font-bold display-tight text-[clamp(2rem,5.5vw,3.5rem)]">
+            Our products
           </h2>
-          <div className="text-2xl font-amiri text-saffron-700 mb-6 arabic-text">
-            منتجاتنا
-          </div>
-          <p className="text-xl text-earth-600 max-w-3xl mx-auto">
-            Discover our premium collection of spices, herbs, oils, and grinding services
+          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground font-noto-kufi">منتجاتنا</div>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Spices, herbs, oils and milling — a small catalogue, kept excellent.
           </p>
-        </div>
+        </header>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product, index) => (
-            <Card 
-              key={index} 
-              className="group overflow-hidden shadow-lg border-saffron-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        <div className="mt-14 grid sm:grid-cols-2 gap-5">
+          {products.map((product, i) => (
+            <article
+              key={product.title}
+              className={`reveal ${isVisible ? 'reveal-in' : ''} lift glass group rounded-[2rem] overflow-hidden`}
+              style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="relative h-48 overflow-hidden">
-                <div 
-                  className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
+              <div className="relative h-56 overflow-hidden">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
                   style={{ backgroundImage: `url("${product.image}")` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, transparent 30%, hsl(24 28% 5% / 0.85) 100%)',
+                  }}
+                />
+                <div className="absolute bottom-4 left-6 right-6">
+                  <h3 className="font-playfair text-2xl font-semibold">{product.title}</h3>
+                  <div className="font-noto-kufi text-sm text-primary/85 arabic-text">
+                    {product.arabicTitle}
+                  </div>
+                </div>
               </div>
-              
-              <CardContent className="p-6">
-                <h3 className="text-xl font-playfair font-semibold text-earth-800 mb-2">
-                  {product.title}
-                </h3>
-                <div className="text-sm font-amiri text-saffron-700 mb-3 arabic-text">
-                  {product.arabicTitle}
-                </div>
-                <p className="text-earth-600 text-sm mb-4 leading-relaxed">
-                  {product.description}
-                </p>
-                
-                <div className="space-y-2">
-                  {product.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center text-sm text-earth-700">
-                      <div className="w-2 h-2 bg-saffron-500 rounded-full mr-2"></div>
+
+              <div className="p-6 sm:p-7">
+                <p className="text-sm leading-relaxed text-muted-foreground">{product.description}</p>
+                <ul className="mt-5 grid grid-cols-2 gap-2">
+                  {product.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-xs text-foreground/85">
+                      <Check className="w-3.5 h-3.5 text-primary shrink-0" />
                       {feature}
-                    </div>
+                    </li>
                   ))}
-                </div>
-              </CardContent>
-            </Card>
+                </ul>
+              </div>
+            </article>
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-saffron-500 to-spice-500 rounded-2xl p-8 text-white text-center">
-          <h3 className="text-3xl font-playfair font-bold mb-4">
-            Special Orders & Custom Requirements
-          </h3>
-          <p className="text-lg mb-6 max-w-2xl mx-auto">
-            We cater to restaurants and special orders with competitive pricing and consistent quality. 
-            Contact us for custom orders and special requirements.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="bg-white/20 px-4 py-2 rounded-full">Restaurant Supply</span>
-            <span className="bg-white/20 px-4 py-2 rounded-full">Special Orders</span>
-            <span className="bg-white/20 px-4 py-2 rounded-full">Quality Guarantee</span>
-            <span className="bg-white/20 px-4 py-2 rounded-full">Custom Packaging</span>
+        <div
+          className={`reveal ${isVisible ? 'reveal-in' : ''} glass-strong mt-8 rounded-[2rem] p-8 sm:p-12 relative overflow-hidden`}
+          style={{ transitionDelay: '320ms' }}
+        >
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'var(--gradient-veil)' }}
+          />
+          <div className="relative max-w-2xl">
+            <h3 className="font-playfair text-2xl sm:text-3xl font-bold">
+              Special orders & wholesale
+            </h3>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              We supply restaurants and large kitchens with consistent quality and competitive
+              pricing. Tell us what you need and how you need it ground.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {['Restaurant supply', 'Special orders', 'Quality guarantee', 'Custom packaging'].map(
+                (tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs text-primary"
+                  >
+                    {tag}
+                  </span>
+                ),
+              )}
+            </div>
           </div>
         </div>
       </div>

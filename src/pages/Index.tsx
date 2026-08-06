@@ -10,33 +10,34 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <ProductsSection />
-      <ServicesSection />
-      <ContactSection />
-      
-      {/* Footer */}
-      <footer className="bg-earth-900 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-playfair font-bold mb-2 gradient-text">
-              Bahar Al Zafran
-            </h3>
-            <div className="text-lg font-amiri text-saffron-300 mb-4 arabic-text">
-              مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ProductsSection />
+        <ServicesSection />
+        <ContactSection />
+      </main>
+
+      <footer className="relative z-10 border-t border-border py-14">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="font-playfair text-2xl font-bold gold-text">Bahar Al Zafran</h2>
+              <div className="mt-1 font-noto-kufi text-sm text-muted-foreground arabic-text">
+                مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Traditional supermarket & grinding mill · Dubai, UAE
+              </p>
             </div>
-            <p className="text-earth-300 mb-4">
-              Traditional Supermarket & Grinding Mill • Dubai, UAE
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-earth-400">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground tabular-nums">
               <span>+971 4 285 7715</span>
               <span>+971 55 474 7065</span>
               <span>+971 55 907 4779</span>
             </div>
-            <div className="mt-6 pt-6 border-t border-earth-700 text-sm text-earth-500">
-              © 2024 Bahar Al Zafran. All rights reserved.
-            </div>
+          </div>
+          <div className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
+            © {new Date().getFullYear()} Bahar Al Zafran. All rights reserved.
           </div>
         </div>
       </footer>
