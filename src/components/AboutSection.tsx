@@ -40,11 +40,12 @@ const AboutSection = () => {
 
         <div className={`reveal ${isVisible ? 'reveal-in' : ''} mt-14 grid lg:grid-cols-[1.05fr_1fr] gap-8 items-stretch`} style={{ transitionDelay: '80ms' }}>
           <div className="glass rounded-[2rem] overflow-hidden">
+            {/* About Image using instore.webp */}
             <div
               className="h-72 sm:h-full min-h-[20rem] bg-cover bg-center"
-              style={{ backgroundImage: 'url("/exterior.webp")' }}
+              style={{ backgroundImage: 'url("/instore.webp")' }}
               role="img"
-              aria-label="Bahar Al Zafran storefront in Dubai"
+              aria-label="Inside Bahar Al Zafran store"
             />
           </div>
 
