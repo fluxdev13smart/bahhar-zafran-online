@@ -16,11 +16,11 @@ const HeroSection = () => {
       className="relative min-h-[100svh] flex items-end overflow-hidden z-10"
     >
       {/* Background layer */}
-     <div
-  className="absolute inset-0 bg-cover bg-center scale-105"
-  style={{ backgroundImage: 'url("/unnamed.webp")' }}
-  aria-hidden="true"
-/>
+      <div
+        className="absolute inset-0 bg-cover bg-center scale-105"
+        style={{ backgroundImage: 'url("/instore.webp")' }}
+        aria-hidden="true"
+      />
       <div
         className="absolute inset-0"
         style={{
@@ -47,7 +47,7 @@ const HeroSection = () => {
             <span className="gold-text">Bahar Al Zafran</span>
           </h1>
 
-          <div className="mt-3 font-noto-kufi text-[clamp(1.05rem,3.4vw,2rem)] text-foreground/80 font-noto-kufi max-w-2xl">
+          <div className="mt-3 font-noto-kufi text-[clamp(1.05rem,3.4vw,2rem)] text-foreground/80 max-w-2xl">
             مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
           </div>
 
