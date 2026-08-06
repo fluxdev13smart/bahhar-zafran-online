@@ -37,16 +37,16 @@ const AboutSection = () => {
           </h2>
           <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground font-noto-kufi">من نحن</div>
         </header>
-
-        <div className={`reveal ${isVisible ? 'reveal-in' : ''} mt-14 grid lg:grid-cols-[1.05fr_1fr] gap-8 items-stretch`} style={{ transitionDelay: '80ms' }}>
-          <div className="glass rounded-[2rem] overflow-hidden">
-            <div
-              className="h-72 sm:h-full min-h-[20rem] bg-cover bg-center"
-              style={{ backgroundImage: `url(${storeImage})` }}
-              role="img"
-              aria-label="Bahar Al Zafran storefront in Dubai"
-            />
-          </div>
+<div className={`reveal ${isVisible ? 'reveal-in' : ''} mt-14 grid lg:grid-cols-[1.05fr_1fr] gap-8 items-stretch`} style={{ transitionDelay: '80ms' }}>
+  <div className="glass rounded-[2rem] overflow-hidden">
+    <div
+      className="h-72 sm:h-full min-h-[20rem] bg-cover bg-center"
+      style={{ backgroundImage: 'url("/download.webp")' }}
+      role="img"
+      aria-label="Bahar Al Zafran storefront in Dubai"
+    />
+  </div>
+</div>
 
           <div className="glass rounded-[2rem] p-7 sm:p-10 flex flex-col justify-center">
             <h3 className="font-playfair text-2xl sm:text-3xl font-semibold">Our heritage</h3>
