@@ -16,11 +16,11 @@ const HeroSection = () => {
       className="relative min-h-[100svh] flex items-end overflow-hidden z-10"
     >
       {/* Background layer */}
-      <div
-        className="absolute inset-0 bg-cover bg-center scale-105"
-        style={{ backgroundImage: 'url("https://i.imgur.com/UuCQ8Z5.png")' }}
-        aria-hidden="true"
-      />
+     <div
+  className="absolute inset-0 bg-cover bg-center scale-105"
+  style={{ backgroundImage: 'url("/unnamed.webp")' }}
+  aria-hidden="true"
+/>
       <div
         className="absolute inset-0"
         style={{
