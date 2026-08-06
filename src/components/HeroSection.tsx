@@ -1,75 +1,99 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { ArrowDown, MapPin } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
+const scrollToSection = (sectionId: string) => {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+};
+
 const HeroSection = () => {
-  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.15 });
 
   return (
     <section
       id="home"
       ref={ref as React.RefObject<HTMLElement>}
-      className={`relative min-h-screen pt-20 flex items-center justify-center overflow-hidden z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className="relative min-h-[100svh] flex items-end overflow-hidden z-10"
     >
-      {/* Background Image */}
+      {/* Background layer */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center scale-105"
+        style={{ backgroundImage: 'url("https://i.imgur.com/UuCQ8Z5.png")' }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("https://i.imgur.com/UuCQ8Z5.png")'
+          background:
+            'linear-gradient(180deg, hsl(24 28% 5% / 0.72) 0%, hsl(24 28% 5% / 0.45) 40%, hsl(24 28% 5% / 0.96) 100%)',
         }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0"
+        style={{ background: 'var(--gradient-veil)' }}
+        aria-hidden="true"
       />
 
-      {/* Floating Spice Elements */}
-      <div className="absolute top-20 left-10 w-16 h-16 bg-saffron-400 rounded-full opacity-20 animate-float"></div>
-      <div className="absolute top-40 right-20 w-12 h-12 bg-spice-500 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute bottom-40 left-20 w-20 h-20 bg-earth-400 rounded-full opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
-
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div className="animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-playfair font-bold mb-4 sm:mb-6 text-shadow-lg">
-            Bahar Al Zafran
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-20 pt-36 sm:pb-28">
+        <div className={`reveal ${isVisible ? 'reveal-in' : ''}`}>
+          <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs sm:text-sm text-primary/90">
+            <MapPin className="w-3.5 h-3.5" />
+            Dubai, United Arab Emirates
+          </div>
+
+          <h1 className="mt-6 font-playfair font-bold display-tight text-[clamp(2.75rem,9vw,6.5rem)]">
+            <span className="gold-text">Bahar Al Zafran</span>
           </h1>
-          <div className="text-xl sm:text-2xl md:text-4xl font-noto-kufi mb-6 sm:mb-8 text-saffron-200 arabic-text">
+
+          <div className="mt-3 font-noto-kufi text-[clamp(1.05rem,3.4vw,2rem)] text-foreground/80 arabic-text max-w-2xl ml-auto sm:ml-0 sm:mr-auto sm:text-left sm:[direction:rtl]">
             مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
           </div>
-          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            Traditional Supermarket & Grinding Mill in Dubai
+
+          <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground">
+            A traditional supermarket and stone grinding mill. Saffron, herbs, spices and
+            pure oils — ground fresh, the way it has always been done.
           </p>
-          <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-300 max-w-2xl mx-auto px-2">
-            Bringing you the finest saffron, herbs, spices, and oils with authentic grinding services since generations
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2">
-            <Button
+
+          <div className="mt-9 flex flex-col sm:flex-row gap-3 sm:items-center">
+            <button
               onClick={() => scrollToSection('products')}
-              size="lg"
-              className="bg-saffron-600 hover:bg-saffron-700 text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-[popOut_0.6s_ease-out] md:animate-none"
+              className="press inline-flex items-center justify-center rounded-full px-7 py-3.5 text-base font-semibold text-primary-foreground"
+              style={{ background: 'var(--gradient-gold)', boxShadow: 'var(--shadow-glow)' }}
             >
-              Explore Our Products
-            </Button>
-            <Button
+              Explore products
+            </button>
+            <button
               onClick={() => scrollToSection('contact')}
-              size="lg"
-              className="bg-earth-600/90 hover:bg-earth-700 text-white border-2 border-earth-500/50 px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-[popOut_0.8s_ease-out] md:animate-none backdrop-blur-sm"
+              className="press glass inline-flex items-center justify-center rounded-full px-7 py-3.5 text-base font-semibold text-foreground hover:border-primary/40"
             >
-              Visit Our Store
-            </Button>
+              Visit our store
+            </button>
           </div>
+
+          <dl className="mt-14 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
+            {[
+              { k: '25+', v: 'Years milling' },
+              { k: '1000+', v: 'Families served' },
+              { k: '6am–11:30pm', v: 'Open daily' },
+            ].map((s) => (
+              <div key={s.k} className="glass rounded-2xl px-3 py-4 sm:px-5">
+                <dt className="text-lg sm:text-2xl font-semibold text-primary tracking-tight">{s.k}</dt>
+                <dd className="mt-1 text-[11px] sm:text-xs text-muted-foreground">{s.v}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-        </div>
-      </div>
+      <button
+        onClick={() => scrollToSection('about')}
+        aria-label="Scroll to about section"
+        className="press absolute bottom-6 left-1/2 -translate-x-1/2 z-10 glass rounded-full p-2.5 text-primary/80"
+      >
+        <ArrowDown className="w-4 h-4 animate-bounce" />
+      </button>
     </section>
   );
 };
