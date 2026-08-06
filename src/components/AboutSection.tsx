@@ -36,7 +36,7 @@ const AboutSection = () => {
           <h2 className="mt-3 font-playfair font-bold display-tight text-[clamp(2rem,5.5vw,3.5rem)]">
             A legacy of spice, in the heart of Dubai
           </h2>
-          <div className="mt-3 font-noto-kufi text-lg text-muted-foreground arabic-text">من نحن</div>
+          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground font-noto-kufi">من نحن</div>
         </header>
 
         <div className={`reveal ${isVisible ? 'reveal-in' : ''} mt-14 grid lg:grid-cols-[1.05fr_1fr] gap-8 items-stretch`} style={{ transitionDelay: '80ms' }}>

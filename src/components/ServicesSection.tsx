@@ -55,7 +55,7 @@ const ServicesSection = () => {
           <h2 className="mt-3 font-playfair font-bold display-tight text-[clamp(2rem,5.5vw,3.5rem)]">
             Our services
           </h2>
-          <div className="mt-3 font-noto-kufi text-lg text-muted-foreground arabic-text">خدماتنا</div>
+          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground font-noto-kufi">خدماتنا</div>
         </header>
 
         <div className="mt-14 grid sm:grid-cols-2 gap-5">

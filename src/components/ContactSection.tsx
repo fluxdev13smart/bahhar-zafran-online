@@ -35,7 +35,7 @@ const ContactSection = () => {
           <h2 className="mt-3 font-playfair font-bold display-tight text-[clamp(2rem,5.5vw,3.5rem)]">
             Contact us
           </h2>
-          <div className="mt-3 font-noto-kufi text-lg text-muted-foreground arabic-text">اتصل بنا</div>
+          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground font-noto-kufi">اتصل بنا</div>
         </header>
 
         <div className="mt-14 grid lg:grid-cols-[1fr_1.1fr] gap-5 items-start">

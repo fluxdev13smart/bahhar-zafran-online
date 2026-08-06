@@ -48,7 +48,7 @@ const ProductsSection = () => {
           <h2 className="mt-3 font-playfair font-bold display-tight text-[clamp(2rem,5.5vw,3.5rem)]">
             Our products
           </h2>
-          <div className="mt-3 font-noto-kufi text-lg text-muted-foreground arabic-text">منتجاتنا</div>
+          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground font-noto-kufi">منتجاتنا</div>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             Spices, herbs, oils and milling — a small catalogue, kept excellent.
           </p>

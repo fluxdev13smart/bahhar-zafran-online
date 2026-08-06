@@ -47,7 +47,7 @@ const HeroSection = () => {
             <span className="gold-text">Bahar Al Zafran</span>
           </h1>
 
-          <div className="mt-3 font-noto-kufi text-[clamp(1.05rem,3.4vw,2rem)] text-foreground/80 arabic-text max-w-2xl ml-auto sm:ml-0 sm:mr-auto sm:text-left sm:[direction:rtl]">
+          <div className="mt-3 font-noto-kufi text-[clamp(1.05rem,3.4vw,2rem)] text-foreground/80 font-noto-kufi max-w-2xl">
             مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
           </div>
 
