@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Copy, Clock, Navigation as NavIcon } from 'lucide-react';
+import { Phone, MapPin, Copy, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
