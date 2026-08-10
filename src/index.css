@@ -102,8 +102,9 @@
   body {
     @apply bg-background text-foreground font-inter;
     background-image:
-      radial-gradient(90% 60% at 50% -10%, hsl(38 90% 50% / 0.14), transparent 62%),
-      radial-gradient(70% 50% at 100% 100%, hsl(8 76% 42% / 0.12), transparent 60%);
+      radial-gradient(90% 60% at 50% -10%, hsl(38 90% 55% / 0.18), transparent 62%),
+      radial-gradient(70% 50% at 100% 100%, hsl(12 78% 48% / 0.16), transparent 60%);
+
     background-attachment: fixed;
     letter-spacing: 0.005em;
   }
