@@ -5,51 +5,52 @@
 
 @layer base {
   :root {
-    /* Obsidian saffron — warm near-black base, gold light, saffron ember */
-    --background: 24 28% 5%;
-    --foreground: 40 32% 94%;
+    /* Warm saffron — lifted espresso base, gold light, saffron ember */
+    --background: 26 24% 12%;
+    --foreground: 40 40% 96%;
 
-    --card: 24 24% 8%;
-    --card-foreground: 40 32% 94%;
+    --card: 26 22% 16%;
+    --card-foreground: 40 40% 96%;
 
-    --popover: 24 26% 7%;
-    --popover-foreground: 40 32% 94%;
+    --popover: 26 22% 15%;
+    --popover-foreground: 40 40% 96%;
 
-    --primary: 42 96% 58%;
-    --primary-foreground: 24 40% 8%;
+    --primary: 42 96% 60%;
+    --primary-foreground: 26 40% 12%;
 
-    --secondary: 24 20% 12%;
-    --secondary-foreground: 40 30% 92%;
+    --secondary: 26 20% 20%;
+    --secondary-foreground: 40 36% 94%;
 
-    --muted: 24 18% 13%;
-    --muted-foreground: 38 16% 66%;
+    --muted: 26 18% 22%;
+    --muted-foreground: 38 22% 78%;
 
-    --accent: 8 76% 52%;
-    --accent-foreground: 40 40% 96%;
+    --accent: 12 78% 56%;
+    --accent-foreground: 40 40% 97%;
 
-    --destructive: 4 74% 48%;
+    --destructive: 4 74% 50%;
     --destructive-foreground: 40 40% 96%;
 
-    --border: 38 22% 22%;
-    --input: 24 18% 16%;
-    --ring: 42 96% 58%;
+    --border: 38 24% 32%;
+    --input: 26 18% 24%;
+    --ring: 42 96% 60%;
 
     --radius: 1.25rem;
 
     /* Materials */
-    --glass-tint: 30 20% 12% / 0.55;
-    --glass-tint-strong: 24 24% 7% / 0.78;
-    --glass-edge: 42 90% 70% / 0.16;
+    --glass-tint: 30 22% 22% / 0.5;
+    --glass-tint-strong: 26 22% 17% / 0.72;
+    --glass-edge: 42 90% 74% / 0.22;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(46 98% 68%), hsl(38 94% 52%) 45%, hsl(18 82% 52%));
-    --gradient-ember: linear-gradient(140deg, hsl(8 76% 46% / 0.9), hsl(38 94% 52% / 0.85));
-    --gradient-veil: radial-gradient(120% 90% at 50% 0%, hsl(38 90% 50% / 0.16), transparent 60%);
+    --gradient-gold: linear-gradient(135deg, hsl(46 98% 70%), hsl(38 94% 54%) 45%, hsl(18 84% 55%));
+    --gradient-ember: linear-gradient(140deg, hsl(10 78% 50% / 0.9), hsl(38 94% 54% / 0.85));
+    --gradient-veil: radial-gradient(120% 90% at 50% 0%, hsl(38 90% 55% / 0.2), transparent 60%);
 
     /* Shadows */
-    --shadow-soft: 0 1px 0 hsl(42 90% 80% / 0.06) inset, 0 12px 32px -18px hsl(0 0% 0% / 0.9);
-    --shadow-float: 0 1px 0 hsl(42 90% 80% / 0.08) inset, 0 30px 70px -30px hsl(20 90% 10% / 0.95);
-    --shadow-glow: 0 18px 50px -20px hsl(42 96% 58% / 0.45);
+    --shadow-soft: 0 1px 0 hsl(42 90% 84% / 0.08) inset, 0 12px 32px -18px hsl(0 0% 0% / 0.6);
+    --shadow-float: 0 1px 0 hsl(42 90% 84% / 0.1) inset, 0 30px 70px -30px hsl(20 60% 6% / 0.7);
+    --shadow-glow: 0 18px 50px -20px hsl(42 96% 60% / 0.5);
+
 
     /* Springs */
     --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
@@ -65,26 +66,27 @@
   }
 
   .dark {
-    --background: 24 28% 5%;
-    --foreground: 40 32% 94%;
-    --card: 24 24% 8%;
-    --card-foreground: 40 32% 94%;
-    --popover: 24 26% 7%;
-    --popover-foreground: 40 32% 94%;
-    --primary: 42 96% 58%;
-    --primary-foreground: 24 40% 8%;
-    --secondary: 24 20% 12%;
-    --secondary-foreground: 40 30% 92%;
-    --muted: 24 18% 13%;
-    --muted-foreground: 38 16% 66%;
-    --accent: 8 76% 52%;
-    --accent-foreground: 40 40% 96%;
-    --destructive: 4 74% 48%;
+    --background: 26 24% 12%;
+    --foreground: 40 40% 96%;
+    --card: 26 22% 16%;
+    --card-foreground: 40 40% 96%;
+    --popover: 26 22% 15%;
+    --popover-foreground: 40 40% 96%;
+    --primary: 42 96% 60%;
+    --primary-foreground: 26 40% 12%;
+    --secondary: 26 20% 20%;
+    --secondary-foreground: 40 36% 94%;
+    --muted: 26 18% 22%;
+    --muted-foreground: 38 22% 78%;
+    --accent: 12 78% 56%;
+    --accent-foreground: 40 40% 97%;
+    --destructive: 4 74% 50%;
     --destructive-foreground: 40 40% 96%;
-    --border: 38 22% 22%;
-    --input: 24 18% 16%;
-    --ring: 42 96% 58%;
+    --border: 38 24% 32%;
+    --input: 26 18% 24%;
+    --ring: 42 96% 60%;
   }
+
 }
 
 @layer base {
@@ -100,8 +102,9 @@
   body {
     @apply bg-background text-foreground font-inter;
     background-image:
-      radial-gradient(90% 60% at 50% -10%, hsl(38 90% 50% / 0.14), transparent 62%),
-      radial-gradient(70% 50% at 100% 100%, hsl(8 76% 42% / 0.12), transparent 60%);
+      radial-gradient(90% 60% at 50% -10%, hsl(38 90% 55% / 0.18), transparent 62%),
+      radial-gradient(70% 50% at 100% 100%, hsl(12 78% 48% / 0.16), transparent 60%);
+
     background-attachment: fixed;
     letter-spacing: 0.005em;
   }

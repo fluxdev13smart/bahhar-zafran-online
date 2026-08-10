@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Copy, Clock, Navigation as NavIcon } from 'lucide-react';
+import { Phone, MapPin, Copy, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
@@ -173,13 +173,35 @@ const ContactSection = () => {
                 <Phone className="w-4 h-4" />
                 Call now
               </button>
-              <button
-                onClick={() => window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')}
-                className="press glass inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold hover:border-primary/40"
-              >
-                <NavIcon className="w-4 h-4 text-primary" />
-                Get directions
-              </button>
+              <div className="map-btn-wrapper">
+                <button
+                  className="map-btn"
+                  onClick={() => window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')}
+                >
+                  Get directions
+                </button>
+                <span className="pinpoint" />
+                <div className="map-container">
+                  <div className="map fold-3" />
+                  <div className="map fold-1" />
+                  <div className="map" />
+                  <div className="map fold-2" />
+                  <div className="map fold-4" />
+                </div>
+                <svg width="0" height="0" aria-hidden="true" focusable="false">
+                  <filter id="land">
+                    <feTurbulence
+                      type="fractalNoise"
+                      baseFrequency="0.012"
+                      numOctaves="4"
+                      seed="8"
+                      result="noise"
+                    />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="180" />
+                  </filter>
+                </svg>
+              </div>
+
             </div>
           </div>
         </div>
