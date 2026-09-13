@@ -172,6 +172,13 @@
     -webkit-text-fill-color: transparent;
   }
 
+  .gold-text .split-char {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .display-tight {
     line-height: 1.02;
     letter-spacing: -0.035em;
