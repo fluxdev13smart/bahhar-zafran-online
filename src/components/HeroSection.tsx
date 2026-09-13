@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, MapPin } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
+import SplitText from '@/components/SplitText';
 
 const scrollToSection = (sectionId: string) => {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -42,9 +43,20 @@ const HeroSection = () => {
             Dubai, United Arab Emirates
           </div>
 
-          <h1 className="mt-6 font-playfair font-bold display-tight text-[clamp(2.75rem,9vw,6.5rem)]">
-            <span className="gold-text">Bahar Al Zafran</span>
-          </h1>
+          <SplitText
+            tag="h1"
+            text="Bahar Al Zafran"
+            className="mt-6 max-w-full font-playfair font-bold display-tight text-[clamp(2.75rem,9vw,6.5rem)] gold-text"
+            delay={45}
+            duration={0.8}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 42, rotateX: -35 }}
+            to={{ opacity: 1, y: 0, rotateX: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="left"
+          />
 
           <div className="mt-3 font-noto-kufi text-[clamp(1.05rem,3.4vw,2rem)] text-foreground/80 max-w-2xl">
             مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
