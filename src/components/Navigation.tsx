@@ -86,8 +86,8 @@ const Navigation = () => {
                 onClick={() => scrollToSection(link.id)}
                 className={`press relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300 ${
                   activeSection === link.id
-                    ? 'text-primary-foreground bg-primary'
-                    : 'text-foreground/75 hover:text-foreground'
+                    ? 'nav-link-active bg-primary'
+                    : 'nav-link hover:text-primary'
                 }`}
               >
                 <span className="relative">{link.label}</span>
@@ -153,8 +153,8 @@ const Navigation = () => {
                   onClick={() => scrollToSection(link.id)}
                   className={`press flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium transition-colors duration-300 ${
                     activeSection === link.id
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-foreground/85 hover:bg-background/40'
+                      ? 'nav-link-active bg-primary'
+                      : 'nav-link hover:bg-background/10'
                   }`}
                 >
                   <link.icon className="w-5 h-5" />
@@ -167,7 +167,7 @@ const Navigation = () => {
                 onClick={() =>
                   window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')
                 }
-                className="press flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium text-foreground/85 hover:bg-background/40"
+                className="press nav-link flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium hover:bg-background/10"
               >
                 <MapPin className="w-5 h-5" />
                 Directions

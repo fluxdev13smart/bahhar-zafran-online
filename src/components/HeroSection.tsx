@@ -31,7 +31,7 @@ const HeroSection = () => {
         aria-hidden="true"
       />
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-20 pt-36 sm:pb-28">
-        <div className={`reveal ${isVisible ? 'reveal-in' : ''}`}>
+        <div className={`hero-copy reveal ${isVisible ? 'reveal-in' : ''}`}>
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs sm:text-sm text-primary/90">
             <MapPin className="w-3.5 h-3.5" />
             Dubai, United Arab Emirates
