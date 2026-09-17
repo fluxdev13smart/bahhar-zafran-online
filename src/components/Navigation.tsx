@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Phone, Home, Info, Package, Settings, MapPin } from 'lucide-react';
+import GlassSurface from '@/components/GlassSurface';
 
 const links = [
   { id: 'home', label: 'Home', icon: Home },
@@ -46,17 +47,30 @@ const Navigation = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <nav
-          className={`pointer-events-auto mt-3 flex items-center justify-between gap-3 rounded-full pl-5 pr-2 py-2 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            scrolled ? 'glass-strong' : 'glass'
-          }`}
+        <GlassSurface
+          width="100%"
+          height="auto"
+          borderRadius={18}
+          borderWidth={0.045}
+          brightness={62}
+          opacity={0.72}
+          blur={9}
+          displace={0.4}
+          backgroundOpacity={scrolled ? 0.82 : 0.68}
+          saturation={1.18}
+          distortionScale={-72}
+          redOffset={0}
+          greenOffset={7}
+          blueOffset={14}
+          className="pointer-events-auto mt-3 nav-surface"
         >
+        <nav className="flex w-full items-center justify-between gap-3 px-3 py-1.5 sm:pl-4">
           <button
             onClick={() => scrollToSection('home')}
             className="press text-left leading-tight"
             aria-label="Bahar Al Zafran — back to top"
           >
-            <span className="block font-playfair text-base sm:text-lg font-bold gold-text">
+            <span className="block font-playfair text-base sm:text-lg font-bold text-primary">
               Bahar Al Zafran
             </span>
             <span className="block font-noto-kufi text-[10px] text-muted-foreground arabic-text">
@@ -65,24 +79,17 @@ const Navigation = () => {
           </button>
 
           {/* Desktop segmented control */}
-          <div className="hidden md:flex items-center gap-1 rounded-full border border-border bg-background/40 p-1">
+          <div className="hidden md:flex items-center gap-1 rounded-xl border border-border/60 bg-background/15 p-1">
             {links.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
                 className={`press relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300 ${
                   activeSection === link.id
-                    ? 'text-primary-foreground'
-                    : 'text-foreground/75 hover:text-foreground'
+                    ? 'nav-link-active bg-primary'
+                    : 'nav-link hover:text-primary'
                 }`}
               >
-                {activeSection === link.id && (
-                  <span
-                    className="absolute inset-0 rounded-full"
-                    style={{ background: 'var(--gradient-gold)' }}
-                    aria-hidden="true"
-                  />
-                )}
                 <span className="relative">{link.label}</span>
               </button>
             ))}
@@ -91,8 +98,7 @@ const Navigation = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => window.open('tel:+971 4 285 7715', '_self')}
-              className="press hidden sm:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground"
-              style={{ background: 'var(--gradient-gold)' }}
+              className="press hidden sm:inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
             >
               <Phone className="w-4 h-4" />
               Call
@@ -115,6 +121,7 @@ const Navigation = () => {
             </label>
           </div>
         </nav>
+        </GlassSurface>
 
         {/* Mobile sheet */}
         <div
@@ -126,21 +133,29 @@ const Navigation = () => {
           style={{ maxHeight: isMenuOpen ? '30rem' : '0rem' }}
           aria-hidden={!isMenuOpen}
         >
-          <ul className="glass-strong rounded-[1.75rem] p-2">
+          <GlassSurface
+            width="100%"
+            height="auto"
+            borderRadius={18}
+            borderWidth={0.05}
+            brightness={58}
+            opacity={0.72}
+            blur={10}
+            backgroundOpacity={0.9}
+            saturation={1.1}
+            distortionScale={-58}
+            className="mobile-nav-surface"
+          >
+          <ul className="w-full p-2">
             {links.map((link) => (
               <li key={link.id}>
                 <button
                   onClick={() => scrollToSection(link.id)}
                   className={`press flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium transition-colors duration-300 ${
                     activeSection === link.id
-                      ? 'text-primary-foreground'
-                      : 'text-foreground/85 hover:bg-background/40'
+                      ? 'nav-link-active bg-primary'
+                      : 'nav-link hover:bg-background/10'
                   }`}
-                  style={
-                    activeSection === link.id
-                      ? { background: 'var(--gradient-gold)' }
-                      : undefined
-                  }
                 >
                   <link.icon className="w-5 h-5" />
                   {link.label}
@@ -152,13 +167,14 @@ const Navigation = () => {
                 onClick={() =>
                   window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')
                 }
-                className="press flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium text-foreground/85 hover:bg-background/40"
+                className="press nav-link flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium hover:bg-background/10"
               >
                 <MapPin className="w-5 h-5" />
                 Directions
               </button>
             </li>
           </ul>
+          </GlassSurface>
         </div>
       </div>
     </header>
