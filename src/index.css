@@ -5,51 +5,54 @@
 
 @layer base {
   :root {
-    /* Warm saffron — lifted espresso base, gold light, saffron ember */
-    --background: 26 24% 12%;
-    --foreground: 40 40% 96%;
+    /* Saffron market — warm parchment, ink, red and aged brass */
+    --background: 38 34% 84%;
+    --foreground: 18 31% 15%;
 
-    --card: 26 22% 16%;
-    --card-foreground: 40 40% 96%;
+    --card: 36 31% 78%;
+    --card-foreground: 18 31% 15%;
 
-    --popover: 26 22% 15%;
-    --popover-foreground: 40 40% 96%;
+    --popover: 35 32% 75%;
+    --popover-foreground: 18 31% 15%;
 
-    --primary: 42 96% 60%;
-    --primary-foreground: 26 40% 12%;
+    --primary: 39 79% 42%;
+    --primary-foreground: 38 45% 94%;
 
-    --secondary: 26 20% 20%;
-    --secondary-foreground: 40 36% 94%;
+    --secondary: 34 25% 71%;
+    --secondary-foreground: 18 31% 15%;
 
-    --muted: 26 18% 22%;
-    --muted-foreground: 38 22% 78%;
+    --muted: 34 22% 73%;
+    --muted-foreground: 20 19% 34%;
 
-    --accent: 12 78% 56%;
-    --accent-foreground: 40 40% 97%;
+    --accent: 7 58% 36%;
+    --accent-foreground: 38 45% 94%;
 
     --destructive: 4 74% 50%;
     --destructive-foreground: 40 40% 96%;
 
-    --border: 38 24% 32%;
-    --input: 26 18% 24%;
-    --ring: 42 96% 60%;
+    --border: 27 24% 57%;
+    --input: 34 25% 71%;
+    --ring: 7 58% 36%;
 
-    --radius: 1.25rem;
+    --radius: 0.5rem;
 
     /* Materials */
-    --glass-tint: 30 22% 22% / 0.5;
-    --glass-tint-strong: 26 22% 17% / 0.72;
-    --glass-edge: 42 90% 74% / 0.22;
+    --glass-tint: 36 31% 78% / 0.9;
+    --glass-tint-strong: 35 32% 75% / 0.96;
+    --glass-edge: 24 27% 40% / 0.24;
+    --nav-glass: 20 28% 15% / 0.76;
+    --nav-glass-edge: 39 60% 58% / 0.34;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(46 98% 70%), hsl(38 94% 54%) 45%, hsl(18 84% 55%));
-    --gradient-ember: linear-gradient(140deg, hsl(10 78% 50% / 0.9), hsl(38 94% 54% / 0.85));
-    --gradient-veil: radial-gradient(120% 90% at 50% 0%, hsl(38 90% 55% / 0.2), transparent 60%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 83% 53%), hsl(36 80% 44%));
+    --gradient-ember: linear-gradient(140deg, hsl(7 58% 36%), hsl(39 79% 42%));
+    --gradient-veil: linear-gradient(180deg, hsl(39 70% 44% / 0.08), transparent);
 
     /* Shadows */
-    --shadow-soft: 0 1px 0 hsl(42 90% 84% / 0.08) inset, 0 12px 32px -18px hsl(0 0% 0% / 0.6);
-    --shadow-float: 0 1px 0 hsl(42 90% 84% / 0.1) inset, 0 30px 70px -30px hsl(20 60% 6% / 0.7);
-    --shadow-glow: 0 18px 50px -20px hsl(42 96% 60% / 0.5);
+    --shadow-soft: 0 8px 24px -18px hsl(18 31% 15% / 0.35);
+    --shadow-float: 0 16px 36px -24px hsl(18 31% 15% / 0.42);
+    --shadow-glow: 0 8px 20px -16px hsl(7 58% 36% / 0.5);
+    --shadow-nav: 0 12px 30px -18px hsl(18 31% 8% / 0.75), inset 0 1px hsl(39 60% 80% / 0.12);
 
 
     /* Springs */
@@ -101,16 +104,12 @@
 
   body {
     @apply bg-background text-foreground font-inter;
-    background-image:
-      radial-gradient(90% 60% at 50% -10%, hsl(38 90% 55% / 0.18), transparent 62%),
-      radial-gradient(70% 50% at 100% 100%, hsl(12 78% 48% / 0.16), transparent 60%);
-
-    background-attachment: fixed;
-    letter-spacing: 0.005em;
+    background-image: linear-gradient(180deg, hsl(var(--background)), hsl(35 31% 80%));
+    letter-spacing: 0;
   }
 
   h1, h2, h3 {
-    letter-spacing: -0.022em;
+    letter-spacing: 0;
   }
 
   /* Custom Scrollbar Styling */
@@ -151,16 +150,16 @@
   /* Translucent materials */
   .glass {
     background: hsl(var(--glass-tint));
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border: 1px solid hsl(var(--glass-edge));
     box-shadow: var(--shadow-soft);
   }
 
   .glass-strong {
     background: hsl(var(--glass-tint-strong));
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border: 1px solid hsl(var(--glass-edge));
     box-shadow: var(--shadow-float);
   }
@@ -181,7 +180,27 @@
 
   .display-tight {
     line-height: 1.02;
-    letter-spacing: -0.035em;
+    letter-spacing: 0;
+  }
+
+  .hero-title,
+  .hero-title .split-char {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: currentColor;
+    text-shadow: 0 2px 18px hsl(18 31% 8% / 0.32);
+  }
+
+  .heritage-panel {
+    background: hsl(20 28% 14% / 0.78);
+    border: 1px solid hsl(39 60% 58% / 0.28);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .nav-surface,
+  .mobile-nav-surface {
+    color: hsl(38 45% 94%);
   }
 
   .reveal {

@@ -30,12 +30,6 @@ const HeroSection = () => {
         }}
         aria-hidden="true"
       />
-      <div
-        className="absolute inset-0"
-        style={{ background: 'var(--gradient-veil)' }}
-        aria-hidden="true"
-      />
-
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-20 pt-36 sm:pb-28">
         <div className={`reveal ${isVisible ? 'reveal-in' : ''}`}>
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs sm:text-sm text-primary/90">
@@ -46,7 +40,7 @@ const HeroSection = () => {
           <SplitText
             tag="h1"
             text="Bahar Al Zafran"
-            className="mt-6 max-w-full font-playfair font-bold display-tight text-[clamp(2.75rem,9vw,6.5rem)] gold-text"
+            className="hero-title mt-6 max-w-full font-playfair font-bold display-tight text-[clamp(2.75rem,9vw,6.5rem)] text-primary"
             delay={45}
             duration={0.8}
             ease="power3.out"
@@ -89,7 +83,7 @@ const HeroSection = () => {
               { k: '1000+', v: 'Families served' },
               { k: '6am–11:30pm', v: 'Open daily' },
             ].map((s) => (
-              <div key={s.k} className="glass rounded-2xl px-3 py-4 sm:px-5">
+              <div key={s.k} className="heritage-panel rounded-lg px-3 py-4 sm:px-5">
                 <dt className="text-lg sm:text-2xl font-semibold text-primary tracking-tight">{s.k}</dt>
                 <dd className="mt-1 text-[11px] sm:text-xs text-muted-foreground">{s.v}</dd>
               </div>
