@@ -5,7 +5,7 @@
   justify-content: center;
   overflow: hidden;
   isolation: isolate;
-  transition: background-color 260ms ease, box-shadow 260ms ease;
+  transition: opacity 260ms ease-out, background-color 260ms ease, box-shadow 260ms ease;
 }
 
 .glass-surface__filter {
@@ -33,24 +33,33 @@
 .glass-surface--svg {
   background: hsl(var(--nav-glass));
   backdrop-filter: var(--filter-id) saturate(var(--glass-saturation, 1));
-  -webkit-backdrop-filter: blur(18px) saturate(var(--glass-saturation, 1));
+  -webkit-backdrop-filter: blur(12px) saturate(var(--glass-saturation, 1)) brightness(1.08);
   border: 1px solid hsl(var(--nav-glass-edge));
-  box-shadow: var(--shadow-nav);
+  box-shadow:
+    inset 0 1px 0 hsl(38 45% 94% / 0.22),
+    inset 0 -1px 0 hsl(18 31% 8% / 0.18),
+    inset 0 0 10px 4px hsl(38 45% 94% / 0.06),
+    0 4px 16px hsl(18 31% 8% / 0.12),
+    0 12px 32px hsl(18 31% 8% / 0.14);
 }
 
 .glass-surface--fallback {
   background: hsl(var(--nav-glass));
-  backdrop-filter: blur(18px) saturate(var(--glass-saturation, 1));
-  -webkit-backdrop-filter: blur(18px) saturate(var(--glass-saturation, 1));
+  backdrop-filter: blur(12px) saturate(1.8) brightness(1.08);
+  -webkit-backdrop-filter: blur(12px) saturate(1.8) brightness(1.08);
   border: 1px solid hsl(var(--nav-glass-edge));
-  box-shadow: var(--shadow-nav);
+  box-shadow:
+    inset 0 1px 0 hsl(38 45% 94% / 0.24),
+    inset 0 -1px 0 hsl(18 31% 8% / 0.16),
+    0 8px 32px hsl(18 31% 8% / 0.2),
+    0 2px 16px hsl(39 79% 42% / 0.08);
 }
 
 .mobile-nav-surface.glass-surface--svg,
 .mobile-nav-surface.glass-surface--fallback {
-  background: hsl(20 28% 13% / 0.96);
-  -webkit-backdrop-filter: blur(22px) saturate(1.1);
-  backdrop-filter: blur(22px) saturate(1.1);
+  background: hsl(20 28% 13% / 0.82);
+  -webkit-backdrop-filter: blur(18px) saturate(1.65) brightness(1.08);
+  backdrop-filter: blur(18px) saturate(1.65) brightness(1.08);
 }
 
 .glass-surface:focus-visible {
@@ -60,7 +69,19 @@
 
 @supports not (backdrop-filter: blur(10px)) {
   .glass-surface--fallback {
-    background: hsl(var(--popover));
+    background: hsl(20 28% 13% / 0.92);
+    box-shadow:
+      inset 0 1px 0 hsl(38 45% 94% / 0.2),
+      inset 0 -1px 0 hsl(18 31% 8% / 0.18);
+  }
+
+  .glass-surface--fallback::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: hsl(38 45% 94% / 0.04);
+    content: '';
   }
 }
 
