@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Phone, Home, Info, Package, Settings, MapPin } from 'lucide-react';
 import GlassSurface from '@/components/GlassSurface';
+import GooeyNav from '@/components/GooeyNav';
 
 const links = [
   { id: 'home', label: 'Home', icon: Home },
@@ -44,13 +45,15 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
+  const activeIndex = Math.max(0, links.findIndex((link) => link.id === activeSection));
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <GlassSurface
           width="100%"
           height="auto"
-          borderRadius={18}
+          borderRadius={28}
           borderWidth={0.045}
           brightness={62}
           opacity={0.72}
@@ -79,26 +82,24 @@ const Navigation = () => {
           </button>
 
           {/* Desktop segmented control */}
-          <div className="hidden md:flex items-center gap-1 rounded-xl border border-border/60 bg-background/15 p-1">
-            {links.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className={`press relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300 ${
-                  activeSection === link.id
-                    ? 'nav-link-active bg-primary'
-                    : 'nav-link hover:text-primary'
-                }`}
-              >
-                <span className="relative">{link.label}</span>
-              </button>
-            ))}
+          <div className="hidden md:flex items-center rounded-2xl border border-border/60 bg-background/15">
+            <GooeyNav
+              items={links.map(({ id, label }) => ({ id, label }))}
+              activeIndex={activeIndex}
+              particleCount={15}
+              particleDistances={[90, 10]}
+              particleR={100}
+              animationTime={600}
+              timeVariance={300}
+              colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+              onSelect={scrollToSection}
+            />
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={() => window.open('tel:+971 4 285 7715', '_self')}
-              className="press hidden sm:inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+              className="press hidden sm:inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
             >
               <Phone className="w-4 h-4" />
               Call
@@ -136,7 +137,7 @@ const Navigation = () => {
           <GlassSurface
             width="100%"
             height="auto"
-            borderRadius={18}
+            borderRadius={28}
             borderWidth={0.05}
             brightness={58}
             opacity={0.72}

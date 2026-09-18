@@ -1,0 +1,156 @@
+.gooey-nav-container {
+  --color-1: hsl(var(--primary));
+  --color-2: hsl(var(--accent));
+  --color-3: hsl(39 82% 62%);
+  --color-4: hsl(7 68% 48%);
+  position: relative;
+  isolation: isolate;
+}
+
+.gooey-nav-container nav {
+  position: relative;
+  display: flex;
+  transform: translate3d(0, 0, 0.01px);
+}
+
+.gooey-nav-container nav ul {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+}
+
+.gooey-nav-container nav li {
+  position: relative;
+  cursor: pointer;
+  border-radius: 0.75rem;
+  color: hsl(38 28% 84%);
+  transition: color 300ms ease, box-shadow 300ms ease;
+}
+
+.gooey-nav-container nav button {
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding: 0.4rem 1rem;
+  border-radius: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+.gooey-nav-container nav li:focus-within {
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
+.gooey-nav-container nav li::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: hsl(var(--primary));
+  content: '';
+  opacity: 0;
+  transform: scale(0.72);
+  transition: opacity 300ms ease, transform 300ms var(--ease-spring);
+}
+
+.gooey-nav-container nav li.active {
+  color: hsl(var(--primary-foreground));
+}
+
+.gooey-nav-container nav li.active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gooey-nav-container .effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: grid;
+  width: 0;
+  height: 0;
+  place-items: center;
+  pointer-events: none;
+}
+
+.gooey-nav-container .effect.text {
+  z-index: 4;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  color: transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.gooey-nav-container .effect.filter {
+  filter: blur(7px) contrast(80);
+  mix-blend-mode: screen;
+}
+
+.gooey-nav-container .effect.filter::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 0.75rem;
+  background: hsl(var(--primary));
+  content: '';
+  opacity: 0;
+  transform: scale(0);
+}
+
+.gooey-nav-container .effect.active::after {
+  animation: gooey-pill 300ms ease both;
+}
+
+.gooey-nav-container .particle,
+.gooey-nav-container .point {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  opacity: 0;
+  transform-origin: center;
+}
+
+.gooey-nav-container .particle {
+  position: absolute;
+  top: calc(50% - 9px);
+  left: calc(50% - 9px);
+  animation: gooey-particle var(--time) ease 1 -350ms;
+}
+
+.gooey-nav-container .point {
+  background: var(--color);
+  animation: gooey-point var(--time) ease 1 -350ms;
+}
+
+@keyframes gooey-pill {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gooey-particle {
+  0% { opacity: 1; transform: rotate(0deg) translate(var(--start-x), var(--start-y)); }
+  70% { opacity: 1; transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x) * 1.2), calc(var(--end-y) * 1.2)); }
+  100% { opacity: 1; transform: rotate(calc(var(--rotate) * 1.2)) translate(calc(var(--end-x) * 0.5), calc(var(--end-y) * 0.5)); }
+}
+
+@keyframes gooey-point {
+  0% { opacity: 0; transform: scale(0); }
+  38%, 85% { opacity: 1; }
+  65%, 85% { transform: scale(var(--scale)); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gooey-nav-container .particle,
+  .gooey-nav-container .point,
+  .gooey-nav-container .effect.active::after {
+    animation: none;
+  }
+}
