@@ -93,14 +93,6 @@
   mix-blend-mode: screen;
 }
 
-.gooey-nav-container .effect.filter::before {
-  position: absolute;
-  inset: -70px;
-  z-index: -2;
-  background: hsl(var(--foreground));
-  content: '';
-}
-
 .gooey-nav-container .effect.filter::after {
   position: absolute;
   inset: 0;
