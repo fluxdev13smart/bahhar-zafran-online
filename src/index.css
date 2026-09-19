@@ -204,11 +204,20 @@
   }
 
   .nav-link {
-    color: hsl(38 28% 84%);
+    color: hsl(38 45% 95%);
+    text-shadow: 0 1px 6px hsl(18 31% 8% / 0.55);
   }
 
   .nav-link-active {
     color: hsl(var(--primary-foreground));
+    text-shadow: none;
+  }
+
+  @media (max-width: 767px) {
+    .nav-surface .font-playfair {
+      color: hsl(39 90% 68%);
+      text-shadow: 0 1px 8px hsl(18 31% 8% / 0.6);
+    }
   }
 
   .nav-surface .line {
