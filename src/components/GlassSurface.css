@@ -33,33 +33,33 @@
 .glass-surface--svg {
   background: hsl(var(--nav-glass));
   backdrop-filter: var(--filter-id) saturate(var(--glass-saturation, 1));
-  -webkit-backdrop-filter: blur(12px) saturate(var(--glass-saturation, 1)) brightness(1.08);
+  -webkit-backdrop-filter: blur(16px) saturate(var(--glass-saturation, 1)) brightness(1.12);
   border: 1px solid hsl(var(--nav-glass-edge));
   box-shadow:
-    inset 0 1px 0 hsl(38 45% 94% / 0.22),
-    inset 0 -1px 0 hsl(18 31% 8% / 0.18),
-    inset 0 0 10px 4px hsl(38 45% 94% / 0.06),
+    inset 0 1px 0 hsl(38 45% 94% / 0.3),
+    inset 0 -1px 0 hsl(18 31% 8% / 0.16),
+    inset 0 0 12px 4px hsl(38 45% 94% / 0.08),
     0 4px 16px hsl(18 31% 8% / 0.12),
-    0 12px 32px hsl(18 31% 8% / 0.14);
+    0 16px 40px hsl(18 31% 8% / 0.18);
 }
 
 .glass-surface--fallback {
   background: hsl(var(--nav-glass));
-  backdrop-filter: blur(12px) saturate(1.8) brightness(1.08);
-  -webkit-backdrop-filter: blur(12px) saturate(1.8) brightness(1.08);
+  backdrop-filter: blur(16px) saturate(1.8) brightness(1.12);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8) brightness(1.12);
   border: 1px solid hsl(var(--nav-glass-edge));
   box-shadow:
-    inset 0 1px 0 hsl(38 45% 94% / 0.24),
+    inset 0 1px 0 hsl(38 45% 94% / 0.3),
     inset 0 -1px 0 hsl(18 31% 8% / 0.16),
-    0 8px 32px hsl(18 31% 8% / 0.2),
-    0 2px 16px hsl(39 79% 42% / 0.08);
+    0 8px 32px hsl(18 31% 8% / 0.22),
+    0 2px 16px hsl(39 79% 42% / 0.1);
 }
 
 .mobile-nav-surface.glass-surface--svg,
 .mobile-nav-surface.glass-surface--fallback {
-  background: hsl(20 28% 13% / 0.82);
-  -webkit-backdrop-filter: blur(18px) saturate(1.65) brightness(1.08);
-  backdrop-filter: blur(18px) saturate(1.65) brightness(1.08);
+  background: hsl(20 28% 13% / 0.86);
+  -webkit-backdrop-filter: blur(22px) saturate(1.7) brightness(1.1);
+  backdrop-filter: blur(22px) saturate(1.7) brightness(1.1);
 }
 
 .glass-surface:focus-visible {

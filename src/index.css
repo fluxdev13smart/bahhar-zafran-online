@@ -40,8 +40,8 @@
     --glass-tint: 36 31% 78% / 0.9;
     --glass-tint-strong: 35 32% 75% / 0.96;
     --glass-edge: 24 27% 40% / 0.24;
-    --nav-glass: 20 28% 15% / 0.76;
-    --nav-glass-edge: 39 60% 58% / 0.34;
+    --nav-glass: 24 26% 18% / 0.55;
+    --nav-glass-edge: 39 60% 62% / 0.45;
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(42 83% 53%), hsl(36 80% 44%));
