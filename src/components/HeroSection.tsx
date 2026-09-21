@@ -32,25 +32,27 @@ const HeroSection = () => {
       />
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-20 pt-36 sm:pb-28">
         <div className={`hero-copy reveal ${isVisible ? 'reveal-in' : ''}`}>
-          <div className="relative z-20 mb-3 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs sm:text-sm text-primary/90">
-            <MapPin className="w-3.5 h-3.5" />
-            Dubai, United Arab Emirates
-          </div>
+          <div className="flex flex-col items-start">
+            <div className="relative z-20 mb-3 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs sm:text-sm text-primary/90">
+              <MapPin className="w-3.5 h-3.5" />
+              Dubai, United Arab Emirates
+            </div>
 
-          <SplitText
-            tag="h1"
-            text="Bahar Al Zafran"
-            className="hero-title max-w-full font-playfair font-bold display-tight text-[clamp(2.75rem,9vw,6.5rem)] text-primary"
-            delay={45}
-            duration={0.8}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 42, rotateX: -35 }}
-            to={{ opacity: 1, y: 0, rotateX: 0 }}
-            threshold={0.1}
-            rootMargin="0px"
-            textAlign="left"
-          />
+            <SplitText
+              tag="h1"
+              text="Bahar Al Zafran"
+              className="hero-title max-w-full font-playfair font-bold display-tight text-[clamp(2.75rem,9vw,6.5rem)] text-primary"
+              delay={45}
+              duration={0.8}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 42, rotateX: -35 }}
+              to={{ opacity: 1, y: 0, rotateX: 0 }}
+              threshold={0.1}
+              rootMargin="0px"
+              textAlign="left"
+            />
+          </div>
 
           <div className="mt-3 font-noto-kufi text-[clamp(1.05rem,3.4vw,2rem)] text-foreground/80 max-w-2xl">
             مطحنة و اعشاب بحرالزعفران ش.ذ.م.م
