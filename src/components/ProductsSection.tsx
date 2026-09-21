@@ -74,7 +74,7 @@ const ProductsSection = () => {
                   }}
                 />
                 <div className="absolute bottom-4 left-6 right-6">
-                  <h3 className="font-playfair text-2xl font-semibold">{product.title}</h3>
+                  <h3 className="font-playfair text-2xl font-semibold text-primary-foreground drop-shadow-md">{product.title}</h3>
                   <div className="font-noto-kufi text-sm text-primary/85 arabic-text">
                     {product.arabicTitle}
                   </div>

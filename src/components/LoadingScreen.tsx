@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, type PointerEvent } from 'react';
 import { FastForward } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import './LoadingScreen.css';
@@ -95,7 +95,7 @@ const LoadingScreen = () => {
     return () => window.clearTimeout(timer);
   }, [state]);
 
-  const trackEyes = (event: React.PointerEvent<HTMLDivElement>) => {
+  const trackEyes = (event: PointerEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
     const dx = (event.clientX - (rect.left + rect.width / 2)) / rect.width;
     const dy = (event.clientY - (rect.top + rect.height / 2)) / rect.height;
@@ -125,14 +125,14 @@ const LoadingScreen = () => {
             <defs>
               <clipPath id="loader-pencil-eraser"><rect height="30" width="30" ry="5" rx="5" /></clipPath>
             </defs>
-            <circle className="pencil-loader__stroke" r="70" strokeDasharray="439.82 439.82" strokeDashoffset="439.82" />
-            <g className="pencil-loader__rotate">
+            <circle className="pencil-loader__stroke" r="70" strokeDasharray="439.82 439.82" strokeDashoffset="439.82" transform="rotate(-113,100,100)" />
+            <g className="pencil-loader__rotate" transform="translate(100,100)">
               <g fill="none">
-                <circle className="pencil-loader__body1" r="64" strokeDasharray="402.12 402.12" strokeDashoffset="402" strokeWidth="30" />
-                <circle className="pencil-loader__body2" r="74" strokeDasharray="464.96 464.96" strokeDashoffset="465" strokeWidth="10" />
-                <circle className="pencil-loader__body3" r="54" strokeDasharray="339.29 339.29" strokeDashoffset="339" strokeWidth="10" />
+                <circle className="pencil-loader__body1" r="64" strokeDasharray="402.12 402.12" strokeDashoffset="402" strokeWidth="30" transform="rotate(-90)" />
+                <circle className="pencil-loader__body2" r="74" strokeDasharray="464.96 464.96" strokeDashoffset="465" strokeWidth="10" transform="rotate(-90)" />
+                <circle className="pencil-loader__body3" r="54" strokeDasharray="339.29 339.29" strokeDashoffset="339" strokeWidth="10" transform="rotate(-90)" />
               </g>
-              <g className="pencil-loader__eraser">
+              <g className="pencil-loader__eraser" transform="rotate(-90) translate(49,0)">
                 <g className="pencil-loader__eraser-skew">
                   <rect className="pencil-loader__eraser-main" height="30" width="30" ry="5" rx="5" />
                   <rect className="pencil-loader__eraser-side" clipPath="url(#loader-pencil-eraser)" height="30" width="5" />
@@ -141,7 +141,7 @@ const LoadingScreen = () => {
                   <rect className="pencil-loader__metal-shine" height="20" width="5" />
                 </g>
               </g>
-              <g className="pencil-loader__point">
+              <g className="pencil-loader__point" transform="rotate(-90) translate(49,-30)">
                 <polygon className="pencil-loader__wood" points="15 0,30 30,0 30" />
                 <polygon className="pencil-loader__wood-shadow" points="15 0,6 30,0 30" />
                 <polygon className="pencil-loader__lead" points="15 0,20 10,10 10" />
