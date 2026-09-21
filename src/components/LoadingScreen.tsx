@@ -32,10 +32,18 @@ const LoadingScreen = () => {
   }, []);
 
   useEffect(() => {
+    if (state !== 'loading') {
+      document.body.style.removeProperty('overflow');
+      return;
+    }
+
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = previousOverflow; };
-  }, []);
+    return () => {
+      if (previousOverflow) document.body.style.overflow = previousOverflow;
+      else document.body.style.removeProperty('overflow');
+    };
+  }, [state]);
 
   useEffect(() => {
     let loaded = 0;

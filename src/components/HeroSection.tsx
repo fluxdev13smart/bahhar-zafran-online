@@ -32,7 +32,7 @@ const HeroSection = () => {
       />
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-20 pt-36 sm:pb-28">
         <div className={`hero-copy reveal ${isVisible ? 'reveal-in' : ''}`}>
-          <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs sm:text-sm text-primary/90">
+          <div className="relative z-20 mb-3 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs sm:text-sm text-primary/90">
             <MapPin className="w-3.5 h-3.5" />
             Dubai, United Arab Emirates
           </div>
@@ -40,7 +40,7 @@ const HeroSection = () => {
           <SplitText
             tag="h1"
             text="Bahar Al Zafran"
-            className="hero-title mt-6 max-w-full font-playfair font-bold display-tight text-[clamp(2.75rem,9vw,6.5rem)] text-primary"
+            className="hero-title max-w-full font-playfair font-bold display-tight text-[clamp(2.75rem,9vw,6.5rem)] text-primary"
             delay={45}
             duration={0.8}
             ease="power3.out"
