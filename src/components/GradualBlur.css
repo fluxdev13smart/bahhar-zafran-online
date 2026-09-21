@@ -7,8 +7,20 @@
 
 .gradual-blur--page {
   position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100vw;
+  padding-bottom: max(1px, env(safe-area-inset-bottom));
+}
+
+.gradual-blur--page::after {
+  content: "";
+  position: absolute;
   inset-inline: 0;
   bottom: 0;
+  height: max(1.25rem, env(safe-area-inset-bottom));
+  background: linear-gradient(to bottom, transparent, hsl(var(--background) / 0.72));
 }
 
 .gradual-blur--visible {

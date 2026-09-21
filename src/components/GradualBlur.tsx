@@ -34,7 +34,9 @@ const GradualBlur = ({
       const solidStart = increment * step;
       const solidEnd = Math.min(100, increment * (step + 1));
       const end = Math.min(100, increment * (step + 2));
-      const mask = `linear-gradient(to bottom, transparent ${start}%, black ${solidStart}%, black ${solidEnd}%, transparent ${end}%)`;
+       const mask = index === divCount - 1
+         ? `linear-gradient(to bottom, transparent ${start}%, black ${solidStart}%, black 100%)`
+         : `linear-gradient(to bottom, transparent ${start}%, black ${solidStart}%, black ${solidEnd}%, transparent ${end}%)`;
       return {
         backdropFilter: `blur(${blur.toFixed(3)}rem)`,
         WebkitBackdropFilter: `blur(${blur.toFixed(3)}rem)`,
