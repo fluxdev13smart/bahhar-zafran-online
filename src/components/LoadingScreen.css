@@ -65,8 +65,8 @@
 }
 
 .pencil-loader { width: min(52vw, 12rem); overflow: visible; filter: drop-shadow(0 12px 22px hsl(18 31% 4% / 0.4)); }
-.pencil-loader__body1, .pencil-loader__body2, .pencil-loader__body3, .pencil-loader__eraser, .pencil-loader__eraser-skew, .pencil-loader__point, .pencil-loader__rotate, .pencil-loader__stroke { animation-duration: 3s; animation-timing-function: linear; animation-iteration-count: infinite; transform-origin: 0 0; }
-.pencil-loader__body1, .pencil-loader__body2, .pencil-loader__body3 { transform: rotate(-90deg); transform-origin: center; }
+.pencil-loader__body1, .pencil-loader__body2, .pencil-loader__body3, .pencil-loader__eraser, .pencil-loader__eraser-skew, .pencil-loader__point, .pencil-loader__rotate, .pencil-loader__stroke { animation-duration: 3s; animation-timing-function: linear; animation-iteration-count: infinite; }
+.pencil-loader__body1, .pencil-loader__body2, .pencil-loader__body3 { transform: rotate(-90deg); }
 .pencil-loader__stroke { fill: none; stroke: var(--loader-gold); stroke-width: 2.5; stroke-linecap: round; animation-name: loaderPencilStroke; }
 .pencil-loader__body1 { stroke: var(--loader-gold); animation-name: loaderPencilBody1; }
 .pencil-loader__body2 { stroke: hsl(42 82% 63%); animation-name: loaderPencilBody2; }
