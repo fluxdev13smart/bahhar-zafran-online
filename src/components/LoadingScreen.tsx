@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, type PointerEvent } from 'react';
 import { FastForward } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import './LoadingScreen.css';
@@ -95,7 +95,7 @@ const LoadingScreen = () => {
     return () => window.clearTimeout(timer);
   }, [state]);
 
-  const trackEyes = (event: React.PointerEvent<HTMLDivElement>) => {
+  const trackEyes = (event: PointerEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
     const dx = (event.clientX - (rect.left + rect.width / 2)) / rect.width;
     const dy = (event.clientY - (rect.top + rect.height / 2)) / rect.height;
