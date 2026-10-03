@@ -9,4 +9,4 @@
 - [x] Start the Bahar Al Zafran text animation after the loading screen exits.
 - [x] Place the loader eyes below the spinning pencil and reveal the blurred website behind it.
 - [x] Restrict the bottom gradient blur to image areas.
-- [ ] Verify the updated loader handoff and image-only blur.
+- [x] Verify the updated loader handoff and image-only blur.
