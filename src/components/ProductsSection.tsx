@@ -63,7 +63,7 @@ const ProductsSection = () => {
             >
               <div className="relative h-56 overflow-hidden">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+                  className="image-bottom-blur absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
                   style={{ backgroundImage: `url("${product.image}")` }}
                 />
                 <div

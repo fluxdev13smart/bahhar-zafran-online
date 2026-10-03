@@ -22,6 +22,7 @@ interface SplitTextProps {
   rootMargin?: string;
   textAlign?: TextAlign;
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+  enabled?: boolean;
   onLetterAnimationComplete?: () => void;
 }
 
@@ -38,6 +39,7 @@ const SplitText = ({
   rootMargin = '-100px',
   textAlign = 'center',
   tag = 'p',
+  enabled = true,
   onLetterAnimationComplete,
 }: SplitTextProps) => {
   const ref = useRef<HTMLElement>(null);
@@ -69,7 +71,7 @@ const SplitText = ({
   useGSAP(
     () => {
       const element = ref.current;
-      if (!element || !text || !fontsLoaded || completedRef.current) return;
+      if (!element || !text || !fontsLoaded || !enabled || completedRef.current) return;
 
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         gsap.set(element, { clearProps: 'all' });
@@ -147,6 +149,7 @@ const SplitText = ({
         threshold,
         rootMargin,
         fontsLoaded,
+        enabled,
       ],
       scope: ref,
     },
@@ -160,6 +163,7 @@ const SplitText = ({
       className={`split-parent ${className}`}
       style={{
         textAlign,
+        visibility: enabled ? 'visible' : 'hidden',
         overflow: 'hidden',
         display: 'inline-block',
         whiteSpace: 'normal',
