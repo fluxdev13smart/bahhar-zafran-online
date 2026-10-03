@@ -42,7 +42,7 @@ const AboutSection = () => {
           <div className="glass rounded-[2rem] overflow-hidden">
             {/* About Image using instore.webp */}
             <div
-              className="h-72 sm:h-full min-h-[20rem] bg-cover bg-center"
+              className="image-bottom-blur h-72 sm:h-full min-h-[20rem] bg-cover bg-center"
               style={{ backgroundImage: 'url("/instore.webp")' }}
               role="img"
               aria-label="Inside Bahar Al Zafran store"

@@ -6,3 +6,7 @@
 - [x] Add the gradual blur while scrolling.
 - [x] Improve mobile English text contrast.
 - [x] Verify loader timing, mobile layout, scroll blur, and console health.
+- [x] Start the Bahar Al Zafran text animation after the loading screen exits.
+- [x] Place the loader eyes below the spinning pencil and reveal the blurred website behind it.
+- [x] Restrict the bottom gradient blur to image areas.
+- [ ] Verify the updated loader handoff and image-only blur.

@@ -6,12 +6,16 @@ import ProductsSection from '@/components/ProductsSection';
 import ServicesSection from '@/components/ServicesSection';
 import ContactSection from '@/components/ContactSection';
 
-const Index = () => {
+interface IndexProps {
+  titleAnimationReady?: boolean;
+}
+
+const Index = ({ titleAnimationReady = true }: IndexProps) => {
   return (
     <div className="min-h-screen">
       <Navigation />
       <main>
-        <HeroSection />
+        <HeroSection titleAnimationReady={titleAnimationReady} />
         <AboutSection />
         <ProductsSection />
         <ServicesSection />
