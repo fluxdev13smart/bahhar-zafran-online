@@ -14,11 +14,7 @@ const ASSETS = [
 
 type LoaderState = 'loading' | 'leaving' | 'hidden';
 
-interface LoadingScreenProps {
-  onComplete?: () => void;
-}
-
-const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
+const LoadingScreen = () => {
   const [state, setState] = useState<LoaderState>('loading');
   const [progress, setProgress] = useState(8);
   const [canSkip, setCanSkip] = useState(false);
@@ -26,21 +22,13 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   const [pupil, setPupil] = useState({ x: 0, y: 0 });
   const startedAt = useRef(Date.now());
   const finishedRef = useRef(false);
-  const completeRef = useRef(onComplete);
-
-  useEffect(() => {
-    completeRef.current = onComplete;
-  }, [onComplete]);
 
   const dismiss = useCallback(() => {
     if (finishedRef.current) return;
     finishedRef.current = true;
     setProgress(100);
     setState('leaving');
-    window.setTimeout(() => {
-      setState('hidden');
-      completeRef.current?.();
-    }, 620);
+    window.setTimeout(() => setState('hidden'), 620);
   }, []);
 
   useEffect(() => {

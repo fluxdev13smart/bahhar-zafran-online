@@ -7,11 +7,7 @@ const scrollToSection = (sectionId: string) => {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
 };
 
-interface HeroSectionProps {
-  titleAnimationReady?: boolean;
-}
-
-const HeroSection = ({ titleAnimationReady = true }: HeroSectionProps) => {
+const HeroSection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.15 });
 
   return (
@@ -22,7 +18,7 @@ const HeroSection = ({ titleAnimationReady = true }: HeroSectionProps) => {
     >
       {/* Hero Background using exterior.webp */}
       <div
-        className="image-bottom-blur absolute inset-0 bg-cover bg-center scale-105"
+        className="absolute inset-0 bg-cover bg-center scale-105"
         style={{ backgroundImage: 'url("/exterior.webp")' }}
         aria-hidden="true"
       />
@@ -55,7 +51,6 @@ const HeroSection = ({ titleAnimationReady = true }: HeroSectionProps) => {
               threshold={0.1}
               rootMargin="0px"
               textAlign="left"
-              enabled={titleAnimationReady}
             />
           </div>
 

@@ -192,23 +192,6 @@
     text-shadow: 0 2px 18px hsl(18 31% 8% / 0.32);
   }
 
-  .image-bottom-blur {
-    position: relative;
-  }
-
-  .image-bottom-blur::after {
-    content: "";
-    position: absolute;
-    inset-inline: 0;
-    bottom: 0;
-    height: 28%;
-    pointer-events: none;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    mask-image: linear-gradient(to bottom, transparent, black);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black);
-  }
-
   .heritage-panel {
     background: hsl(20 28% 14% / 0.78);
     border: 1px solid hsl(39 60% 58% / 0.28);
