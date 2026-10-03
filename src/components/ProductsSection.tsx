@@ -61,9 +61,9 @@ const ProductsSection = () => {
               className={`reveal ${isVisible ? 'reveal-in' : ''} lift glass group rounded-[2rem] overflow-hidden`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="image-bottom-blur relative h-56 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+                  className="image-bottom-blur absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
                   style={{ backgroundImage: `url("${product.image}")` }}
                 />
                 <div
