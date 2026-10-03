@@ -14,7 +14,11 @@ const ASSETS = [
 
 type LoaderState = 'loading' | 'leaving' | 'hidden';
 
-const LoadingScreen = () => {
+interface LoadingScreenProps {
+  onFinished?: () => void;
+}
+
+const LoadingScreen = ({ onFinished }: LoadingScreenProps) => {
   const [state, setState] = useState<LoaderState>('loading');
   const [progress, setProgress] = useState(8);
   const [canSkip, setCanSkip] = useState(false);
@@ -28,8 +32,11 @@ const LoadingScreen = () => {
     finishedRef.current = true;
     setProgress(100);
     setState('leaving');
-    window.setTimeout(() => setState('hidden'), 620);
-  }, []);
+    window.setTimeout(() => {
+      setState('hidden');
+      onFinished?.();
+    }, 620);
+  }, [onFinished]);
 
   useEffect(() => {
     if (state !== 'loading') {

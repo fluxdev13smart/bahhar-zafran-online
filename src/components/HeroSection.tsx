@@ -7,7 +7,11 @@ const scrollToSection = (sectionId: string) => {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
 };
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  titleAnimationReady?: boolean;
+}
+
+const HeroSection = ({ titleAnimationReady = true }: HeroSectionProps) => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.15 });
 
   return (
@@ -51,6 +55,7 @@ const HeroSection = () => {
               threshold={0.1}
               rootMargin="0px"
               textAlign="left"
+              enabled={titleAnimationReady}
             />
           </div>
 

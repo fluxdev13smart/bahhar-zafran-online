@@ -7,25 +7,30 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import LoadingScreen from "./components/LoadingScreen";
 import GradualBlur from "./components/GradualBlur";
+import { useState } from "react";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <LoadingScreen />
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-      <GradualBlur />
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [loadingFinished, setLoadingFinished] = useState(false);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <LoadingScreen onFinished={() => setLoadingFinished(true)} />
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index titleAnimationReady={loadingFinished} />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+        <GradualBlur />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
