@@ -46,6 +46,7 @@ const SplitText = ({
   const completedRef = useRef(false);
   const callbackRef = useRef(onLetterAnimationComplete);
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [animationPrepared, setAnimationPrepared] = useState(false);
 
   useEffect(() => {
     callbackRef.current = onLetterAnimationComplete;
@@ -76,6 +77,7 @@ const SplitText = ({
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         gsap.set(element, { clearProps: 'all' });
         completedRef.current = true;
+        setAnimationPrepared(true);
         callbackRef.current?.();
         return;
       }
@@ -127,6 +129,8 @@ const SplitText = ({
             force3D: true,
           });
 
+          // Reveal the parent only after GSAP has hidden the characters.
+          setAnimationPrepared(true);
           return tween;
         },
       });
@@ -163,6 +167,7 @@ const SplitText = ({
       className={`split-parent ${className}`}
       style={{
         textAlign,
+        visibility: enabled && animationPrepared ? 'visible' : 'hidden',
         overflow: 'hidden',
         display: 'inline-block',
         whiteSpace: 'normal',
