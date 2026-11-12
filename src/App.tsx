@@ -20,13 +20,15 @@ const App = () => {
         <LoadingScreen onFinished={() => setLoadingFinished(true)} />
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index titleAnimationReady={loadingFinished} />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+        {loadingFinished && (
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index titleAnimationReady={loadingFinished} />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        )}
         <GradualBlur />
       </TooltipProvider>
     </QueryClientProvider>
