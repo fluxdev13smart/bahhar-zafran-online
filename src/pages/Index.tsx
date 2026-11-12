@@ -13,8 +13,9 @@ interface IndexProps {
 const Index = ({ titleAnimationReady = true }: IndexProps) => {
   return (
     <div className="min-h-screen">
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Navigation />
-      <main>
+      <main id="main-content">
         <HeroSection titleAnimationReady={titleAnimationReady} />
         <AboutSection />
         <ProductsSection />
@@ -22,7 +23,7 @@ const Index = ({ titleAnimationReady = true }: IndexProps) => {
         <ContactSection />
       </main>
 
-      <footer className="relative z-10 border-t border-border py-14">
+      <footer className="market-footer relative z-10 py-14">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div>

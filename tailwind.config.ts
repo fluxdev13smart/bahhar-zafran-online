@@ -20,7 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
-				'inter': ['Inter', 'sans-serif'],
+				'inter': ['DM Sans', 'sans-serif'],
 				'noto-kufi': ['Noto Kufi Arabic', 'sans-serif'],
 			},
 			colors: {

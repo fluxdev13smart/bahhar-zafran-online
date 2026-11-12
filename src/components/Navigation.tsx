@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Phone, Home, Info, Package, Settings, MapPin } from 'lucide-react';
+import { Phone, Home, Info, Settings, MapPin } from 'lucide-react';
 import GlassSurface from '@/components/GlassSurface';
 import GooeyNav from '@/components/GooeyNav';
+import { Button } from '@/components/ui/button';
 
 const links = [
   { id: 'home', label: 'Home', icon: Home },
   { id: 'about', label: 'About', icon: Info },
-  { id: 'products', label: 'Products', icon: Package },
+  { id: 'location', label: 'Location', icon: MapPin },
   { id: 'services', label: 'Services', icon: Settings },
   { id: 'contact', label: 'Contact', icon: Phone },
 ];
@@ -68,9 +69,9 @@ const Navigation = () => {
           className="pointer-events-auto mt-3 nav-surface"
         >
         <nav className="flex w-full items-center justify-between gap-3 px-3 py-1.5 sm:pl-4">
-          <button
+          <Button
             onClick={() => scrollToSection('home')}
-            className="press text-left leading-tight"
+            variant="ghost" className="press h-auto flex-col items-start gap-0 p-0 text-left leading-tight hover:bg-transparent"
             aria-label="Bahar Al Zafran — back to top"
           >
             <span className="block font-playfair text-base sm:text-lg font-bold text-primary">
@@ -79,7 +80,7 @@ const Navigation = () => {
             <span className="block font-noto-kufi text-[10px] text-muted-foreground arabic-text">
               مطحنة و اعشاب بحرالزعفران
             </span>
-          </button>
+          </Button>
 
           {/* Desktop segmented control */}
           <div className="hidden md:flex items-center rounded-2xl border border-border/60 bg-background/15">
@@ -97,18 +98,20 @@ const Navigation = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <button
+            <Button
               onClick={() => window.open('tel:+971 4 285 7715', '_self')}
               className="press hidden sm:inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
             >
               <Phone className="w-4 h-4" />
               Call
-            </button>
+            </Button>
 
             {/* Mobile menu toggle */}
             <label className="hamburger md:hidden pr-1" aria-label="Toggle menu">
               <input
                 type="checkbox"
+                 aria-label="Toggle menu"
+                 aria-expanded={isMenuOpen}
                 checked={isMenuOpen}
                 onChange={() => setIsMenuOpen(!isMenuOpen)}
               />
@@ -126,12 +129,13 @@ const Navigation = () => {
 
         {/* Mobile sheet */}
         <div
-          className={`pointer-events-auto md:hidden origin-top transform-gpu overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          className={`mobile-menu-sheet pointer-events-auto md:hidden transform-gpu overflow-hidden ${
             isMenuOpen
               ? 'opacity-100 translate-y-0 scale-100 mt-3'
               : 'opacity-0 -translate-y-2 scale-[0.97] mt-0 pointer-events-none'
           }`}
           style={{ maxHeight: isMenuOpen ? '30rem' : '0rem' }}
+          {...(!isMenuOpen ? { inert: '' } : {})}
           aria-hidden={!isMenuOpen}
         >
           <GlassSurface
@@ -150,9 +154,9 @@ const Navigation = () => {
           <ul className="w-full p-2">
             {links.map((link) => (
               <li key={link.id}>
-                <button
+                <Button
                   onClick={() => scrollToSection(link.id)}
-                  className={`press flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium transition-colors duration-300 ${
+                  variant="ghost" className={`press h-auto justify-start flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium transition-colors duration-300 ${
                     activeSection === link.id
                       ? 'nav-link-active bg-primary'
                       : 'nav-link hover:bg-background/10'
@@ -160,19 +164,19 @@ const Navigation = () => {
                 >
                   <link.icon className="w-5 h-5" />
                   {link.label}
-                </button>
+                </Button>
               </li>
             ))}
             <li>
-              <button
+              <Button
                 onClick={() =>
                   window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')
                 }
-                className="press nav-link flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium hover:bg-background/10"
+                variant="ghost" className="press nav-link h-auto justify-start flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium hover:bg-background/10"
               >
                 <MapPin className="w-5 h-5" />
                 Directions
-              </button>
+              </Button>
             </li>
           </ul>
           </GlassSurface>

@@ -6,23 +6,23 @@
 @layer base {
   :root {
     /* Saffron market — warm parchment, ink, red and aged brass */
-    --background: 38 34% 84%;
-    --foreground: 18 31% 15%;
+    --background: 43 44% 78%;
+    --foreground: 12 28% 17%;
 
-    --card: 36 31% 78%;
-    --card-foreground: 18 31% 15%;
+    --card: 43 38% 73%;
+    --card-foreground: 12 28% 17%;
 
     --popover: 35 32% 75%;
     --popover-foreground: 18 31% 15%;
 
-    --primary: 39 79% 42%;
-    --primary-foreground: 38 45% 94%;
+    --primary: 40 74% 46%;
+    --primary-foreground: 12 28% 13%;
 
     --secondary: 34 25% 71%;
     --secondary-foreground: 18 31% 15%;
 
     --muted: 34 22% 73%;
-    --muted-foreground: 20 19% 34%;
+    --muted-foreground: 16 21% 29%;
 
     --accent: 7 58% 36%;
     --accent-foreground: 38 45% 94%;
@@ -35,6 +35,11 @@
     --ring: 7 58% 36%;
 
     --radius: 1.5rem;
+
+    --hero-ink: 40 42% 94%;
+    --hero-overlay: linear-gradient(180deg, hsl(12 20% 8% / 0.22), hsl(12 20% 8% / 0.3) 30%, hsl(12 20% 8% / 0.9));
+    --photo-overlay: linear-gradient(180deg, transparent 20%, hsl(12 20% 8% / 0.82));
+    --section-tone: 42 36% 71%;
 
     /* Materials */
     --glass-tint: 36 31% 78% / 0.9;
@@ -103,8 +108,9 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter;
-    background-image: linear-gradient(180deg, hsl(var(--background)), hsl(35 31% 80%));
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", sans-serif;
+    background-image: none;
     letter-spacing: 0;
   }
 
@@ -817,3 +823,59 @@
   }
 
 }
+
+/* Editorial market layout: existing glass and map effects remain intact. */
+.hero-section { min-height: min(54rem, 94svh); }
+.hero-image { object-position: center 38%; }
+.hero-overlay { background: var(--hero-overlay); }
+.hero-copy > .font-noto-kufi, .hero-copy > p { color: hsl(var(--hero-ink)); }
+.hero-location { background: hsl(var(--hero-ink) / .1); color: hsl(var(--hero-ink)); border: 1px solid hsl(var(--hero-ink) / .3); backdrop-filter: blur(12px); }
+.hero-title { font-size: 5.5rem; }
+.hero-facts { border-top: 1px solid hsl(var(--hero-ink) / .25); color: hsl(var(--hero-ink)); }
+.hero-facts dd { color: hsl(var(--hero-ink) / .78); }
+.market-section { padding-block: 6rem; scroll-margin-top: 6rem; }
+.section-heading { font-size: 3.25rem; line-height: 1.1; text-wrap: balance; }
+.section-kicker { color: hsl(var(--accent)); font-size: .875rem; font-weight: 600; }
+.story-image { width: 100%; height: 100%; min-height: 28rem; object-fit: cover; border-radius: var(--radius); }
+.story-pillar { padding-block: 1.25rem; border-bottom: 1px solid hsl(var(--border) / .5); }
+.product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.5rem 2rem; }
+.product-photo { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-spring); }
+.product-image { aspect-ratio: 1.5; overflow: hidden; border-radius: var(--radius); background: hsl(var(--card)); }
+.product-item:first-child .product-image { aspect-ratio: 1.2; }
+.product-item:nth-child(2) { padding-top: 5rem; }
+.product-details { padding-top: 1.25rem; }
+.wholesale-band { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid hsl(var(--border)); display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+.service-band { background: hsl(var(--section-tone)); }
+.service-item { padding-block: 2rem; border-top: 1px solid hsl(var(--border) / .6); }
+.service-item h3 { font-size: 1.625rem; }
+.process-band { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid hsl(var(--border)); }
+#contact > div > div:last-child { background: none; border: none; border-top: 1px solid hsl(var(--border)); box-shadow: none; border-radius: 0; }
+#contact iframe { border: 0; border-radius: var(--radius); }
+.market-footer { background: hsl(var(--section-tone)); }
+.market-footer .gold-text { background: none; -webkit-text-fill-color: currentColor; color: hsl(var(--accent)); }
+.nav-surface .font-playfair { color: hsl(40 76% 72%); }
+.nav-surface .arabic-text { color: hsl(var(--hero-ink) / .8); }
+.mobile-menu-sheet { transition: opacity 240ms var(--ease-spring), transform 240ms var(--ease-spring); transform-origin: top right; }
+.hamburger { min-width: 44px; min-height: 44px; }
+.hamburger input { display: block; position: absolute; opacity: 0; width: 44px; height: 44px; cursor: pointer; }
+.hamburger:focus-within { outline: 2px solid hsl(var(--primary)); outline-offset: 3px; border-radius: .5rem; }
+button:focus-visible, a:focus-visible { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
+.skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 60; transform: translateY(-200%); padding: .75rem 1rem; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); border-radius: .5rem; }
+.skip-link:focus { transform: none; }
+.map-btn-wrapper { font-family: inherit; --text-color: hsl(var(--hero-ink)); }
+@media (hover: hover) and (pointer: fine) { .product-item:hover .product-photo { transform: scale(1.035); } }
+@media (max-width: 767px) {
+  .hero-section { min-height: 48rem; }
+  .hero-title { font-size: 3rem; }
+  .hero-image { object-position: 52% center; }
+  .market-section { padding-block: 4rem; }
+  .section-heading { font-size: 2.25rem; }
+  .story-image { min-height: 0; aspect-ratio: 1.2; }
+  .product-grid { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .product-item:nth-child(2) { padding-top: 0; }
+  .product-item:first-child .product-image { aspect-ratio: 1.5; }
+  .wholesale-band { flex-direction: column; align-items: flex-start; }
+  .hero-facts { gap: 1rem; }
+  .hero-facts dt { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) { .product-photo, .mobile-menu-sheet { transition: none; } .product-item:hover .product-photo { transform: none; } }

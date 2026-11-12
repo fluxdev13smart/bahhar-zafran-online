@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, MapPin, Copy, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
@@ -27,15 +28,15 @@ const ContactSection = () => {
     <section
       id="contact"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative z-10 py-24 sm:py-32"
+      className="market-section relative z-10"
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <header className={`reveal ${isVisible ? 'reveal-in' : ''} max-w-2xl`}>
-          <p className="text-xs uppercase tracking-[0.22em] text-primary/80">Come by</p>
-          <h2 className="mt-3 font-playfair font-bold display-tight text-[clamp(2rem,5.5vw,3.5rem)]">
-            Contact us
+          <p className="section-kicker">Come by</p>
+          <h2 className="mt-3 section-heading font-playfair font-semibold">
+            A familiar place. A fresh aroma.
           </h2>
-          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground font-noto-kufi">اتصل بنا</div>
+          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground">اتصل بنا</div>
         </header>
 
         <div className="mt-14 grid lg:grid-cols-[1fr_1.1fr] gap-5 items-start">
@@ -55,18 +56,18 @@ const ContactSection = () => {
                       {phone.display}
                     </span>
                     <div className="flex items-center gap-2">
-                      <button
+                      <Button
                         onClick={() => handleCopyClick(phone.display)}
                         aria-label={`Copy ${phone.display}`}
-                        className="press inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 text-foreground/80 hover:text-primary"
+                        variant="ghost" className="press p-0 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/60 text-foreground/80 hover:text-primary"
                       >
                         <Copy className="w-4 h-4" />
-                      </button>
+                      </Button>
                       {phone.whatsapp && (
-                        <button
-                          className="whatsapp-btn"
+                        <Button
+                          variant="ghost" className="whatsapp-btn p-0"
                           aria-label={`WhatsApp ${phone.display}`}
-                          onClick={() => handleWhatsAppClick(phone.whatsapp!)}
+                          onClick={() => phone.whatsapp && handleWhatsAppClick(phone.whatsapp)}
                         >
                           <span className="whatsapp-svgContainer">
                             <svg viewBox="0 0 16 16" className="whatsapp-svgIcon">
@@ -74,15 +75,15 @@ const ContactSection = () => {
                             </svg>
                           </span>
                           <span className="whatsapp-BG"></span>
-                        </button>
+                        </Button>
                       )}
-                      <button
+                      <Button
                         onClick={() => handleCallClick(phone.call)}
                         className="press rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground"
-                        style={{ background: 'var(--gradient-gold)' }}
+                        
                       >
                         Call
-                      </button>
+                      </Button>
                     </div>
                   </li>
                 ))}
@@ -139,7 +140,7 @@ const ContactSection = () => {
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d104520.32142778013!2d55.3156343!3d25.2256447!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f675f5a7eb597%3A0x7766958fd13126d0!2zQkFIQVIgQUxaQUZBUkFOIEdSSU5ESU5HIFNIT1Ag2YXYt9it2YbYqSDZiCDYo9i52LTYp9ioINio2K3Ysdin2YTYsti52YHYsdin2YY!5e1!3m2!1sen!2sae!4v1748177558623!5m2!1sen!2sae"
                 width="100%"
                 height="520"
-                style={{ border: 0, borderRadius: '1.5rem' }}
+                
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -150,6 +151,7 @@ const ContactSection = () => {
         </div>
 
         <div
+          id="location"
           className={`reveal ${isVisible ? 'reveal-in' : ''} glass-strong mt-8 rounded-[2rem] p-8 sm:p-12 text-center relative overflow-hidden`}
           style={{ transitionDelay: '180ms' }}
         >
@@ -165,21 +167,21 @@ const ContactSection = () => {
               Come in, smell everything, and let us grind it fresh while you wait.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
-              <button
+              <Button
                 onClick={() => handleCallClick(phoneNumbers[0].call)}
                 className="press inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold text-primary-foreground"
-                style={{ background: 'var(--gradient-gold)', boxShadow: 'var(--shadow-glow)' }}
+                
               >
                 <Phone className="w-4 h-4" />
                 Call now
-              </button>
+              </Button>
               <div className="map-btn-wrapper">
-                <button
-                  className="map-btn"
+                <Button
+                  className="map-btn h-auto"
                   onClick={() => window.open('https://maps.app.goo.gl/2r8qcDyauneKaFi47', '_blank')}
                 >
                   Get directions
-                </button>
+                </Button>
                 <span className="pinpoint" />
                 <div className="map-container">
                   <div className="map fold-3" />

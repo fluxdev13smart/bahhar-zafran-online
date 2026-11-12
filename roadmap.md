@@ -1,5 +1,9 @@
 # Roadmap
 
+- [ ] Refresh typography, imagery, and section layouts using suitable active design skills.
+- [ ] Preserve the loading sequence, glass navigation, and animated contact buttons.
+- [ ] Verify desktop and mobile appearance, navigation, and scrolling.
+
 - [x] Build the branded animated loading screen from the supplied reference.
 - [x] Tie dismissal to critical image and font readiness with fallback timing.
 - [x] Reveal a working skip control after two seconds.

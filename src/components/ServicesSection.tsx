@@ -47,26 +47,26 @@ const ServicesSection = () => {
     <section
       id="services"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative z-10 py-24 sm:py-32"
+      className="market-section service-band relative z-10"
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <header className={`reveal ${isVisible ? 'reveal-in' : ''} max-w-2xl`}>
-          <p className="text-xs uppercase tracking-[0.22em] text-primary/80">What we do</p>
-          <h2 className="mt-3 font-playfair font-bold display-tight text-[clamp(2rem,5.5vw,3.5rem)]">
-            Our services
+          <p className="section-kicker">What we do</p>
+          <h2 className="mt-3 section-heading font-playfair font-semibold">
+            Freshly ground. Just for you.
           </h2>
-          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground font-noto-kufi">خدماتنا</div>
+          <div className="mt-3 font-noto-kufi inline-block text-lg text-muted-foreground">خدماتنا</div>
         </header>
 
-        <div className="mt-14 grid sm:grid-cols-2 gap-5">
+        <div className="mt-10 grid md:grid-cols-2 gap-x-16">
           {services.map((service, i) => (
             <article
               key={service.title}
-              className={`reveal ${isVisible ? 'reveal-in' : ''} lift glass rounded-[1.75rem] p-7 sm:p-8 h-full`}
+              className={`reveal ${isVisible ? 'reveal-in' : ''} service-item`}
               style={{ transitionDelay: `${i * 70}ms` }}
             >
               <div className="flex items-start gap-4">
-                <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 text-primary">
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center text-accent">
                   <service.icon className="w-5 h-5" />
                 </span>
                 <div>
@@ -83,7 +83,7 @@ const ServicesSection = () => {
                 {service.features.map((f) => (
                   <span
                     key={f}
-                    className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-[11px] text-foreground/80"
+                    className="text-xs text-foreground/80"
                   >
                     {f}
                   </span>
@@ -94,7 +94,7 @@ const ServicesSection = () => {
         </div>
 
         <div
-          className={`reveal ${isVisible ? 'reveal-in' : ''} glass-strong mt-8 rounded-[2rem] p-8 sm:p-12`}
+          className={`reveal ${isVisible ? 'reveal-in' : ''} process-band`}
           style={{ transitionDelay: '300ms' }}
         >
           <h3 className="font-playfair text-2xl sm:text-3xl font-bold">Our grinding process</h3>

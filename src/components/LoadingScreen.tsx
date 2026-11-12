@@ -1,16 +1,12 @@
+import saffron from '@/assets/saffron.jpg.asset.json';
+import spices from '@/assets/spices.jpg.asset.json';
+import oils from '@/assets/oils.jpg.asset.json';
 import { useCallback, useEffect, useRef, useState, type PointerEvent } from 'react';
 import { FastForward } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import './LoadingScreen.css';
 
-const ASSETS = [
-  '/exterior.webp',
-  '/instore.webp',
-  'https://i.herbalreality.com/wp-content/uploads/2022/05/21124107/saffron-Crocus-sativus-wooden-bowl-scaled.jpg',
-  'https://etimg.etb2bimg.com/photo/110025886.cms',
-  'https://health.osu.edu/-/media/health/images/stories/2018/05/essential-oils.jpg',
-  'https://i5.walmartimages.com/asr/ab7a5623-f78e-4f30-8600-b3c5c87da75f.c8a86ff1220b9de3da80692e95818a9c.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF',
-];
+const ASSETS = ['/exterior.webp', '/instore.webp', saffron.url, spices.url, oils.url];
 
 type LoaderState = 'loading' | 'leaving' | 'hidden';
 
