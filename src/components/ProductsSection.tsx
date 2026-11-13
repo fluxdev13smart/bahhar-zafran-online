@@ -3,30 +3,27 @@ import { Check, ArrowUpRight } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
 import { Button } from '@/components/ui/button';
-import saffron from '@/assets/saffron.jpg.asset.json';
-import spices from '@/assets/spices.jpg.asset.json';
-import oils from '@/assets/oils.jpg.asset.json';
 
 const products = [
   {
     title: 'Premium Saffron',
     arabicTitle: 'زعفران فاخر',
     description: 'The finest threads from Kashmir — intense aroma, deep colour, honest grading.',
-    image: saffron.url,
+    image: "/saffron.webp",
     features: ['Grade A quality', 'Hand-picked', 'Lab tested', 'Authentic origin'],
   },
   {
     title: 'Mixed Herbs & Spices',
     arabicTitle: 'أعشاب وبهارات مختلطة',
     description: 'Cardamom, cinnamon, black pepper and traditional house blends, ground fresh.',
-    image: spices.url,
+    image: "/spices.webp",
     features: ['Fresh ground', 'Custom blends', 'Traditional recipes', 'Many options'],
   },
   {
     title: 'Essential Oils',
     arabicTitle: 'زيوت عطرية',
     description: 'Pure oils extracted from herbs and spices for culinary and therapeutic use.',
-    image: oils.url,
+    image: "/oils.webp",
     features: ['100% pure', 'No additives', 'Food grade', 'Various sizes'],
   },
   {

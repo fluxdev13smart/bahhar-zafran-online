@@ -1,12 +1,9 @@
-import saffron from '@/assets/saffron.jpg.asset.json';
-import spices from '@/assets/spices.jpg.asset.json';
-import oils from '@/assets/oils.jpg.asset.json';
 import { useCallback, useEffect, useRef, useState, type PointerEvent } from 'react';
 import { FastForward } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import './LoadingScreen.css';
 
-const ASSETS = ['/exterior.webp', '/instore.webp', saffron.url, spices.url, oils.url];
+const ASSETS = ['/exterior.webp', '/instore.webp', "/saffron.webp", "/spices.webp", "/oils.webp"];
 
 type LoaderState = 'loading' | 'leaving' | 'hidden';
 
