@@ -62,7 +62,7 @@ const ProductsSection = () => {
         <div className="product-grid mt-10">
           {products.map((product) => (
             <article key={product.title} className={`product-item group reveal ${isVisible ? 'reveal-in' : ''}`}>
-              <div className="product-image"><img src={product.image} alt={product.title === 'Custom Grinding' ? 'Spice selection inside the grinding shop' : product.title} className="product-photo" loading="lazy" /></div>
+              <div className="product-image"><img src={product.image} alt={product.title === 'Custom Grinding' ? 'Spice selection inside the grinding shop' : product.title} className="product-photo" loading="eager" decoding="async" /></div>
               <div className="product-details">
                 <div className="flex flex-wrap justify-between items-baseline gap-2"><h3 className="font-playfair text-2xl font-semibold">{product.title}</h3><span className="font-noto-kufi text-sm text-accent" dir="rtl">{product.arabicTitle}</span></div>
                 <p className="mt-3 leading-relaxed text-muted-foreground">{product.description}</p>
