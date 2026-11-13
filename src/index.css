@@ -845,13 +845,19 @@
 .product-item:nth-child(2) { padding-top: 5rem; }
 .product-details { padding-top: 1.25rem; }
 .wholesale-band { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid hsl(var(--border)); display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-.service-band { background: hsl(var(--section-tone)); }
+.service-band { background: hsl(var(--section-tone)); isolation: isolate; overflow: hidden; }
+.service-band::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: hsl(var(--primary) / .16); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='black'%3E%3Cpath d='M20 18c8-8 18-6 18-6s2 10-6 18-18 6-18 6-2-10 6-18z'/%3E%3Ccircle cx='86' cy='30' r='3'/%3E%3Ccircle cx='96' cy='40' r='1.8'/%3E%3Cpath d='M80 84l4-10 4 10-4 4z'/%3E%3Ccircle cx='30' cy='92' r='2.4'/%3E%3Cpath d='M60 58c3 0 5 2 5 5s-2 5-5 5-5-2-5-5 2-5 5-5zm0 3a2 2 0 100 4 2 2 0 000-4z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 120px 120px repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='black'%3E%3Cpath d='M20 18c8-8 18-6 18-6s2 10-6 18-18 6-18 6-2-10 6-18z'/%3E%3Ccircle cx='86' cy='30' r='3'/%3E%3Ccircle cx='96' cy='40' r='1.8'/%3E%3Cpath d='M80 84l4-10 4 10-4 4z'/%3E%3Ccircle cx='30' cy='92' r='2.4'/%3E%3Cpath d='M60 58c3 0 5 2 5 5s-2 5-5 5-5-2-5-5 2-5 5-5zm0 3a2 2 0 100 4 2 2 0 000-4z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 120px 120px repeat; }
+.service-band::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(60% 50% at 50% 45%, hsl(var(--section-tone)) 30%, transparent 100%); }
+.process-band { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid hsl(var(--border)); }
+.process-band ol { counter-reset: step; }
+.process-band ol > li { border: 0 !important; padding-left: 0 !important; position: relative; }
+.process-band ol > li > span:first-child { display: inline-flex; height: 2.75rem; width: 2.75rem; align-items: center; justify-content: center; border-radius: 9999px; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); box-shadow: 0 0 0 6px hsl(var(--section-tone)), 0 0 0 7px hsl(var(--primary) / .3); position: relative; z-index: 1; }
+@media (min-width: 1024px) { .process-band ol > li:not(:last-child)::after { content: ""; position: absolute; top: 1.375rem; left: 3.5rem; right: -1rem; border-top: 2px dashed hsl(var(--primary) / .35); } }
 .service-item { padding: 1.75rem; margin-bottom: 1.5rem; border-radius: var(--radius); background: linear-gradient(160deg, hsl(var(--card)), hsl(var(--card) / .75)); border: 1px solid hsl(var(--primary) / .22); box-shadow: 0 1px 0 hsl(var(--background) / .6) inset, 0 18px 40px -22px hsl(var(--primary) / .45); transition: transform 300ms var(--ease-spring), box-shadow 300ms var(--ease-spring); }
 @media (hover: hover) { .service-item:hover { transform: translateY(-3px); box-shadow: 0 1px 0 hsl(var(--background) / .6) inset, 0 24px 48px -22px hsl(var(--primary) / .55); } }
 .service-item > div:first-child > span:first-child { border-radius: 9999px; background: hsl(var(--primary) / .14); }
-.process-band ol > li { padding: 1.5rem 1.25rem; border: 1px solid hsl(var(--primary) / .22) !important; border-left: 3px solid hsl(var(--primary)) !important; border-radius: var(--radius); background: hsl(var(--card) / .85); box-shadow: 0 14px 32px -22px hsl(var(--primary) / .45); }
+
 .service-item h3 { font-size: 1.625rem; }
-.process-band { margin-top: 3rem; padding: 2.5rem clamp(1.25rem,4vw,2.5rem); border-radius: calc(var(--radius) + .5rem); background: linear-gradient(145deg, hsl(var(--background) / .55), hsl(var(--card) / .4)); border: 1px solid hsl(var(--primary) / .18); }
 #contact > div > div:last-child { background: none; border: none; border-top: 1px solid hsl(var(--border)); box-shadow: none; border-radius: 0; }
 #contact iframe { border: 0; border-radius: var(--radius); }
 .market-footer { background: hsl(var(--section-tone)); }
