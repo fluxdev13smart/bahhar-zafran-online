@@ -888,3 +888,4 @@ button:focus-visible, a:focus-visible { outline: 2px solid hsl(var(--accent)); o
   .hero-facts dt { font-size: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { .product-photo, .mobile-menu-sheet { transition: none; } .product-item:hover .product-photo { transform: none; } }
+.nav-surface.glass-surface, .mobile-nav-surface.glass-surface { background: hsl(var(--foreground) / .78) !important; }

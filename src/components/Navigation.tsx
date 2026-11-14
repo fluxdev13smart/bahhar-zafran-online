@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Phone, Home, Info, Settings, MapPin } from 'lucide-react';
+import { Phone, Home, Info, Settings, MapPin, Navigation as DirectionsIcon } from 'lucide-react';
 import GlassSurface from '@/components/GlassSurface';
 import GooeyNav from '@/components/GooeyNav';
 import { Button } from '@/components/ui/button';
@@ -7,9 +7,9 @@ import { Button } from '@/components/ui/button';
 const links = [
   { id: 'home', label: 'Home', icon: Home },
   { id: 'about', label: 'About', icon: Info },
-  { id: 'location', label: 'Location', icon: MapPin },
   { id: 'services', label: 'Services', icon: Settings },
   { id: 'contact', label: 'Contact', icon: Phone },
+  { id: 'location', label: 'Location', icon: MapPin },
 ];
 
 const Navigation = () => {
@@ -28,12 +28,12 @@ const Navigation = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
+          if (entry.isIntersecting) setActiveSection(entry.target.id === 'products' ? 'about' : entry.target.id);
         });
       },
       { rootMargin: '-45% 0px -50% 0px' },
     );
-    links.forEach(({ id }) => {
+    [...links.map((l) => l.id), 'products'].forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
@@ -59,13 +59,13 @@ const Navigation = () => {
           brightness={62}
           opacity={0.72}
           blur={9}
-          displace={0.4}
-          backgroundOpacity={scrolled ? 0.82 : 0.68}
+          displace={0}
+          backgroundOpacity={scrolled ? 0.9 : 0.82}
           saturation={1.18}
-          distortionScale={-72}
+          distortionScale={-20}
           redOffset={0}
-          greenOffset={7}
-          blueOffset={14}
+          greenOffset={0}
+          blueOffset={0}
           className="pointer-events-auto mt-3 nav-surface"
         >
         <nav className="flex w-full items-center justify-between gap-3 px-3 py-1.5 sm:pl-4">
@@ -99,7 +99,7 @@ const Navigation = () => {
 
           <div className="flex items-center gap-2">
             <Button
-              onClick={() => window.open('tel:+971 4 285 7715', '_self')}
+              onClick={() => window.open('tel:+97142857715', '_self')}
               className="press hidden sm:inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
             >
               <Phone className="w-4 h-4" />
@@ -148,7 +148,7 @@ const Navigation = () => {
             blur={10}
             backgroundOpacity={0.9}
             saturation={1.1}
-            distortionScale={-58}
+            distortionScale={-20}
             className="mobile-nav-surface"
           >
           <ul className="w-full p-2">
@@ -174,7 +174,7 @@ const Navigation = () => {
                 }
                 variant="ghost" className="press nav-link h-auto justify-start flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-base font-medium hover:bg-background/10"
               >
-                <MapPin className="w-5 h-5" />
+                <DirectionsIcon className="w-5 h-5" />
                 Directions
               </Button>
             </li>
